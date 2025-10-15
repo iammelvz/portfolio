@@ -2,87 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Optional CSS File -->
+  <title>Melvin Gungog | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f9;
-    }
-    header {
-      background-color: #333;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-    }
-    nav ul li {
-      display: inline;
-      margin: 0 15px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-    }
-    .container {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #333;
-      color: white;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
+    body { background: #f8f9fa; }
+    .hero { background: #343a40; color: #fff; padding: 48px 0; text-align: center; }
+    .profile-img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 4px solid #fff; margin-bottom: 16px; }
+    .section-title { margin-top: 48px; margin-bottom: 24px; }
+    .project-card { transition: box-shadow 0.2s; }
+    .project-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Portfolio</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Melvin Gungog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="Melvin%20Gungog%20Resume.docx.pdf" download>Download CV</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="hero">
+    <img src="https://avatars.githubusercontent.com/u/your-github-id?v=4" alt="Profile" class="profile-img">
+    <h1 class="display-5 fw-bold">Melvin Gungog</h1>
+    <p class="lead">Backend Developer | Cloud Solutions | API Specialist</p>
+    <a href="Melvin%20Gungog%20Resume.docx.pdf" class="btn btn-primary btn-lg" download>Download CV</a>
+  </section>
   <div class="container">
     <section id="about">
-      <h2>About Me</h2>
-      <p>Hello! I'm a passionate software engineer skilled in web development, backend systems, and creating impactful solutions.</p>
+      <h2 class="section-title">About Me</h2>
+      <p>
+        Experienced software engineer specializing in backend development, cloud integration, and API design. Skilled in Node.js, TypeScript, Express, MySQL, and Google Cloud Platform. I build scalable, secure, and maintainable solutions for modern web applications.
+      </p>
     </section>
-
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <span class="badge bg-secondary m-1">Node.js</span>
+          <span class="badge bg-secondary m-1">TypeScript</span>
+          <span class="badge bg-secondary m-1">Express.js</span>
+          <span class="badge bg-secondary m-1">MySQL</span>
+          <span class="badge bg-secondary m-1">Google Cloud Platform</span>
+          <span class="badge bg-secondary m-1">REST APIs</span>
+          <span class="badge bg-secondary m-1">Docker</span>
+          <span class="badge bg-secondary m-1">Git</span>
+          <span class="badge bg-secondary m-1">Jest</span>
+          <span class="badge bg-secondary m-1">CI/CD</span>
+          <span class="badge bg-secondary m-1">Agile/Scrum</span>
+        </div>
+      </div>
+    </section>
     <section id="projects">
-      <h2>My Projects</h2>
-      <ul>
-        <li><strong>Project 1:</strong> A weather app that uses APIs to provide real-time weather data. (<a href="https://github.com/your-github/weather-app" target="_blank">GitHub Link</a>)</li>
-        <li><strong>Project 2:</strong> An e-commerce site with dynamic cart features and user authentication. (<a href="https://github.com/your-github/e-commerce-site" target="_blank">GitHub Link</a>)</li>
-        <li><strong>Project 3:</strong> A machine learning model for predicting housing prices. (<a href="https://github.com/your-github/ml-housing" target="_blank">GitHub Link</a>)</li>
+      <h2 class="section-title">Projects</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card project-card">
+            <div class="card-body">
+              <h5 class="card-title">Todo List Service API</h5>
+              <p class="card-text">RESTful API for todo list app using Node.js, TypeScript, Express, MySQL, deployed on Google Cloud Functions.</p>
+              <a href="https://github.com/wuweimelvz/todo-ts-wc" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card project-card">
+            <div class="card-body">
+              <h5 class="card-title">Cloud Storage Integration</h5>
+              <p class="card-text">File upload/download modules using Google Cloud Storage and Pub/Sub for event-driven processing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card project-card">
+            <div class="card-body">
+              <h5 class="card-title">Authentication & Validation</h5>
+              <p class="card-text">Secure user authentication and input validation using JWT and express-validator.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card project-card">
+            <div class="card-body">
+              <h5 class="card-title">More Projects</h5>
+              <p class="card-text">See more on my <a href="https://github.com/wuweimelvz" target="_blank">GitHub</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Software Engineer</strong> – Freelance / Personal Projects (2022–Present)<br>
+          Developed and maintained backend services, APIs, and cloud integrations.
+        </li>
+        <li class="list-group-item">
+          <strong>IT Specialist</strong> – [Previous Company Name]<br>
+          Managed IT infrastructure, supported software deployments, and provided technical solutions.
+        </li>
       </ul>
     </section>
-
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <p>Feel free to reach out via email at <a href="mailto:youremail@example.com">youremail@example.com</a>.</p>
-      <p>Or connect on <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>.</p>
+    <section id="contact" class="mb-5">
+      <h2 class="section-title">Contact</h2>
+      <p>
+        <strong>Email:</strong> <a href="mailto:wuweimelvz@gmail.com">wuweimelvz@gmail.com</a><br>
+        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/melvin-gungog-95040327b" target="_blank">Melvin Gungog</a>
+      </p>
     </section>
   </div>
-
-  <footer>
-    <p>© 2025 My Portfolio | All rights reserved.</p>
+  <footer class="bg-dark text-white text-center py-4">
+    &copy; 2025 Melvin Gungog | All rights reserved.
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
