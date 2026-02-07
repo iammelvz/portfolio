@@ -2,22 +2,467 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Melvin Gungog | Portfolio</title>
+  <title>Melvin Gungog | Full-Stack Software Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Full-stack software engineer specializing in mobile and web development, AI integration, and cloud solutions.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { background: #f8f9fa; }
-    .hero { background: #343a40; color: #fff; padding: 48px 0; text-align: center; }
-    .profile-img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 4px solid #fff; margin-bottom: 16px; }
-    .section-title { margin-top: 48px; margin-bottom: 24px; }
-    .project-card { transition: box-shadow 0.2s; }
-    .project-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --secondary: #475569;
+      --text-light: #64748b;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      scroll-behavior: smooth;
+    }
+
+    html {
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background: var(--light);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--dark);
+      line-height: 1.7;
+      padding-top: 70px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #0f172a !important;
+      letter-spacing: -0.5px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-link {
+      color: #475569 !important;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem !important;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--primary) !important;
+      transform: translateY(-1px);
+    }
+
+    .navbar-toggler {
+      border-color: rgba(71, 85, 105, 0.3);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+      width: 60%;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--gradient);
+      color: #fff;
+      padding: 120px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      margin-bottom: 24px;
+      transition: transform 0.3s ease;
+      animation: fadeInUp 0.6s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    .hero h1 {
+      font-weight: 800;
+      font-size: 3rem;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+      animation: fadeInUp 0.6s ease 0.1s both;
+    }
+
+    .hero .lead {
+      font-size: 1.3rem;
+      font-weight: 400;
+      opacity: 0.95;
+      margin-bottom: 32px;
+      animation: fadeInUp 0.6s ease 0.2s both;
+    }
+
+    .btn-hero {
+      background: white;
+      color: #2563eb !important;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 50px;
+      border: none;
+      font-size: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.6s ease 0.3s both;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-hero:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      color: #1e40af !important;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 80px 0;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .section-title {
+      font-weight: 800;
+      font-size: 2.5rem;
+      margin-bottom: 48px;
+      color: #0f172a;
+      position: relative;
+      display: inline-block;
+      letter-spacing: -1px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    #about p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #334155;
+      max-width: 900px;
+      font-weight: 400;
+    }
+
+    /* Skills Section */
+    .skills-category {
+      margin-bottom: 32px;
+    }
+
+    .skills-category h6 {
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #0f172a;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border-radius: 50px;
+      margin: 6px 4px;
+      transition: all 0.2s ease;
+      background: #f1f5f9;
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Project Cards */
+    .project-card {
+      transition: all 0.3s ease;
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      background: white;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .project-card .card-body {
+      padding: 28px;
+    }
+
+    .project-card .badge {
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: none !important;
+    }
+
+    .project-card .badge.bg-primary {
+      background: #2563eb !important;
+      color: white !important;
+    }
+
+    .project-card .badge.bg-success {
+      background: #10b981 !important;
+      color: white !important;
+    }
+
+    .project-card .badge.bg-info {
+      background: #06b6d4 !important;
+      color: white !important;
+    }
+
+    .project-card h5 {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin: 16px 0 12px;
+      color: #0f172a;
+    }
+
+    .project-card .card-text {
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .project-card .text-muted {
+      font-size: 0.85rem;
+      color: #64748b !important;
+      font-weight: 500;
+    }
+
+    .btn-outline-primary {
+      border: 2px solid #2563eb;
+      color: #2563eb;
+      font-weight: 600;
+      padding: 8px 24px;
+      border-radius: 50px;
+      transition: all 0.2s ease;
+      background: white;
+    }
+
+    .btn-outline-primary:hover {
+      background: #2563eb;
+      color: white !important;
+      border-color: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Experience Section */
+    .list-group-item {
+      border: none;
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .list-group-item:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateX(4px);
+    }
+
+    .list-group-item strong {
+      color: #0f172a;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .list-group-item {
+      color: #334155;
+    }
+
+    .list-group-item .text-muted {
+      color: #64748b !important;
+      font-weight: 500;
+    }
+
+    .list-group-item ul {
+      margin-top: 16px;
+      padding-left: 24px;
+    }
+
+    .list-group-item ul li {
+      margin-bottom: 10px;
+      color: #334155;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    #contact .lead {
+      color: #475569 !important;
+    }
+
+    #contact strong {
+      color: #0f172a;
+    }
+
+    #contact a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    #contact a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 32px 0;
+      margin-top: 80px;
+      font-size: 0.95rem;
+    }
+
+    footer p {
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 80px 0 60px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .lead {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Melvin Gungog</a>
+      <a class="navbar-brand" href="#">MG</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,33 +479,72 @@
     </div>
   </nav>
   <section class="hero">
-    <img src="melvz.jpg" alt="Profile" class="profile-img">
-    <h1 class="display-5 fw-bold">Melvin Gungog</h1>
-    <p class="lead">Backend Developer | Cloud Solutions | API Specialist</p>
-    <a href="Melvin%20Gungog%20Resume.docx.pdf" class="btn btn-primary btn-lg" download>Download CV</a>
+    <div class="hero-content">
+      <img src="melvz.jpg" alt="Melvin Gungog - Full-Stack Software Engineer" class="profile-img">
+      <h1 class="display-5 fw-bold">Melvin Gungog</h1>
+      <p class="lead">Backend Developer | E-commerce & Warehouse Systems | Cloud Architecture</p>
+      <a href="Melvin%20Gungog%20Resume.docx.pdf" class="btn btn-hero" download>Download CV</a>
+    </div>
   </section>
   <div class="container">
     <section id="about">
       <h2 class="section-title">About Me</h2>
       <p>
-        Experienced software engineer specializing in backend development, cloud integration, and API design. Skilled in Node.js, TypeScript, Express, MySQL, and Google Cloud Platform. I build scalable, secure, and maintainable solutions for modern web applications.
+        Full-stack software engineer currently working as a Backend Developer at an Australian e-commerce company, specializing in warehouse management and fulfillment systems. Expert in building scalable microservices using Java (Spring Boot), Node.js, TypeScript, and event-driven Pub/Sub architecture on Google Cloud Platform. Experienced in mobile and web development, AI integration, and cloud solutions. Recent focus includes warehouse automation, real-time order processing, mental wellness technology, and educational platforms. I create production-ready, user-centric solutions with clean architecture and modern best practices.
       </p>
     </section>
     <section id="skills">
-      <h2 class="section-title">Skills</h2>
+      <h2 class="section-title">Skills & Technologies</h2>
       <div class="row">
         <div class="col-md-12">
-          <span class="badge bg-secondary m-1">Node.js</span>
-          <span class="badge bg-secondary m-1">TypeScript</span>
-          <span class="badge bg-secondary m-1">Express.js</span>
-          <span class="badge bg-secondary m-1">MySQL</span>
-          <span class="badge bg-secondary m-1">Google Cloud Platform</span>
-          <span class="badge bg-secondary m-1">REST APIs</span>
-          <span class="badge bg-secondary m-1">Docker</span>
-          <span class="badge bg-secondary m-1">Git</span>
-          <span class="badge bg-secondary m-1">Jest</span>
-          <span class="badge bg-secondary m-1">CI/CD</span>
-          <span class="badge bg-secondary m-1">Agile/Scrum</span>
+          <div class="skills-category">
+            <h6>Frontend & Mobile</h6>
+            <span class="badge">React</span>
+            <span class="badge">React Native</span>
+            <span class="badge">Next.js</span>
+            <span class="badge">Expo</span>
+            <span class="badge">Vite</span>
+            <span class="badge">Tailwind CSS</span>
+            <span class="badge">NativeWind</span>
+          </div>
+
+          <div class="skills-category">
+            <h6>Backend & APIs</h6>
+            <span class="badge">Java (Spring Boot)</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge">Express.js</span>
+            <span class="badge">REST APIs</span>
+            <span class="badge">Supabase</span>
+          </div>
+
+          <div class="skills-category">
+            <h6>Database & Cloud</h6>
+            <span class="badge">PostgreSQL</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">BigQuery</span>
+            <span class="badge">Supabase</span>
+            <span class="badge">Google Cloud Platform</span>
+            <span class="badge">Pub/Sub Architecture</span>
+          </div>
+
+          <div class="skills-category">
+            <h6>AI & Integrations</h6>
+            <span class="badge">AI Integration (Anthropic SDK)</span>
+            <span class="badge">Braze (Customer Engagement)</span>
+            <span class="badge">Analytics (Amplitude, Sentry)</span>
+            <span class="badge">Payment Systems (PayPal)</span>
+            <span class="badge">Alert Monitoring & Metrics</span>
+          </div>
+
+          <div class="skills-category">
+            <h6>Tools & Practices</h6>
+            <span class="badge">Git</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Jest</span>
+            <span class="badge">CI/CD</span>
+            <span class="badge">Agile/Scrum</span>
+          </div>
         </div>
       </div>
     </section>
@@ -70,25 +554,49 @@
         <div class="col-md-6 mb-4">
           <div class="card project-card">
             <div class="card-body">
+              <span class="badge bg-primary mb-2">Featured</span>
+              <h5 class="card-title">Serenity - Mental Wellness App</h5>
+              <p class="card-text">Comprehensive mental wellness platform with 37+ screens including mood tracking, AI-powered insights, therapeutic games, and journaling. Built with React Native (Expo), TypeScript, Supabase, and Anthropic AI SDK. Features premium subscription system with PayPal integration.</p>
+              <p class="card-text"><small class="text-muted">React Native • Next.js • TypeScript • Supabase • AI Integration</small></p>
+              <a href="https://github.com/iammelvz/serenity-mobile" class="btn btn-outline-primary btn-sm" target="_blank">Mobile App</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card project-card">
+            <div class="card-body">
+              <span class="badge bg-success mb-2">Production Ready</span>
+              <h5 class="card-title">Serenity Admin Dashboard</h5>
+              <p class="card-text">Real-time admin dashboard for monitoring user engagement, subscriptions, mood analytics, and content management. Built with Next.js 15, TypeScript, Tailwind CSS, and Supabase. Features revenue tracking, churn analysis, and feedback management.</p>
+              <p class="card-text"><small class="text-muted">Next.js • TypeScript • Tailwind CSS • Recharts • Supabase</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card project-card">
+            <div class="card-body">
+              <span class="badge bg-info mb-2">MVP Complete</span>
+              <h5 class="card-title">Kabisado - Board Exam Reviewer</h5>
+              <p class="card-text">Offline-first mobile app for Filipino board exam preparation with gamification, streak tracking, and freemium model. Features quiz interface, subject-based learning, and progress analytics. Built with Expo, TypeScript, and NativeWind.</p>
+              <p class="card-text"><small class="text-muted">React Native • Expo • TypeScript • NativeWind • AsyncStorage</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card project-card">
+            <div class="card-body">
+              <h5 class="card-title">Delivery Promise Tech Design</h5>
+              <p class="card-text">Technical design for calculating delivery promise with fulfilment capacity optimization. Focused on improving logistics efficiency and customer satisfaction through intelligent capacity planning.</p>
+              <p class="card-text"><small class="text-muted">System Design • Logistics • Optimization</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card project-card">
+            <div class="card-body">
               <h5 class="card-title">Todo List Service API</h5>
               <p class="card-text">RESTful API for todo list app using Node.js, TypeScript, Express, MySQL, deployed on Google Cloud Functions.</p>
               <a href="https://github.com/wuweimelvz/todo-ts-wc" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <h5 class="card-title">Cloud Storage Integration</h5>
-              <p class="card-text">File upload/download modules using Google Cloud Storage and Pub/Sub for event-driven processing.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <h5 class="card-title">Authentication & Validation</h5>
-              <p class="card-text">Secure user authentication and input validation using JWT and express-validator.</p>
             </div>
           </div>
         </div>
@@ -106,25 +614,76 @@
       <h2 class="section-title">Experience</h2>
       <ul class="list-group">
         <li class="list-group-item">
-          <strong>Software Engineer</strong> – Freelance / Personal Projects (2022–Present)<br>
-          Developed and maintained backend services, APIs, and cloud integrations.
+          <strong>Backend Developer</strong> – Australian E-commerce Company (2022–Present)<br>
+          <span class="text-muted">Full-Time • Warehouse & Fulfillment Systems</span>
+          <ul class="mt-2">
+            <li>Develop and maintain warehouse management tools covering the complete order lifecycle: order-confirmed, picked, pack, dispatched, and delivered processes</li>
+            <li>Design and implement <strong>Pub/Sub architecture</strong> using Google Cloud Platform for scalable, event-driven microservices communication</li>
+            <li>Build backend services with <strong>Java (Spring Boot)</strong>, <strong>Node.js</strong>, and <strong>TypeScript</strong> for order processing, inventory management, and logistics automation</li>
+            <li>Integrate <strong>Braze</strong> for customer communication workflows including order status updates, shipping notifications, and delivery confirmations</li>
+            <li>Work with <strong>BigQuery</strong> and <strong>MySQL</strong> for data warehousing, analytics, and transactional database operations</li>
+            <li>Develop frontend interfaces using <strong>Next.js</strong>, vanilla JavaScript, and HTML for warehouse operations dashboards and tools</li>
+            <li>Create technical design documentation for new features, ensuring scalability and maintainability of warehouse systems</li>
+            <li>Implement <strong>alert monitoring</strong> and <strong>metrics dashboards</strong> for tracking system health, performance, and operational KPIs</li>
+            <li>Collaborate with cross-functional teams in an Agile environment to deliver high-quality solutions for logistics optimization</li>
+          </ul>
         </li>
         <li class="list-group-item">
-          <strong>IT Specialist</strong> – [Previous Company Name]<br>
+          <strong>Full-Stack Software Engineer</strong> – Personal Projects & Development (2022–Present)<br>
+          <span class="text-muted">Part-Time • Recent Work (Last 6 Months):</span>
+          <ul class="mt-2">
+            <li>Built <strong>Serenity</strong>, a production-ready mental wellness mobile app with 37+ screens, AI integration, and premium subscription system serving mental health support</li>
+            <li>Developed admin dashboard using Next.js 15 for real-time monitoring of user analytics, subscriptions, and revenue tracking with comprehensive data visualization</li>
+            <li>Created <strong>Kabisado</strong>, an offline-first board exam reviewer app for the Filipino market with gamification and streak tracking</li>
+            <li>Architected full-stack applications using React Native, Next.js, TypeScript, Supabase, and integrated AI capabilities (Anthropic SDK)</li>
+            <li>Implemented secure authentication systems, payment processing (PayPal), analytics (Amplitude, Sentry), and real-time database synchronization</li>
+            <li>Designed technical solutions for delivery promise optimization with fulfilment capacity calculations</li>
+          </ul>
+        </li>
+        <li class="list-group-item">
+          <strong>IT Specialist</strong> – Previous Role (Pre-2022)<br>
           Managed IT infrastructure, supported software deployments, and provided technical solutions.
         </li>
       </ul>
     </section>
     <section id="contact" class="mb-5">
-      <h2 class="section-title">Contact</h2>
-      <p>
-        <strong>Email:</strong> <a href="mailto:wuweimelvz@gmail.com">wuweimelvz@gmail.com</a><br>
-        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/melvin-gungog-95040327b" target="_blank">Melvin Gungog</a>
-      </p>
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div style="background: white; border-radius: 16px; padding: 48px; box-shadow: var(--shadow-sm);">
+            <p class="lead text-center mb-4" style="color: var(--secondary);">
+              I'm always interested in hearing about new projects and opportunities.
+            </p>
+            <div class="row text-center">
+              <div class="col-md-4 mb-3">
+                <div style="padding: 24px;">
+                  <div style="font-size: 2rem; margin-bottom: 12px;">📧</div>
+                  <strong style="display: block; margin-bottom: 8px; color: var(--dark);">Email</strong>
+                  <a href="mailto:wuweimelvz@gmail.com">wuweimelvz@gmail.com</a>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div style="padding: 24px;">
+                  <div style="font-size: 2rem; margin-bottom: 12px;">💼</div>
+                  <strong style="display: block; margin-bottom: 8px; color: var(--dark);">LinkedIn</strong>
+                  <a href="https://www.linkedin.com/in/melvin-gungog-95040327b" target="_blank">Connect with me</a>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div style="padding: 24px;">
+                  <div style="font-size: 2rem; margin-bottom: 12px;">💻</div>
+                  <strong style="display: block; margin-bottom: 8px; color: var(--dark);">GitHub</strong>
+                  <a href="https://github.com/wuweimelvz" target="_blank">View my code</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
-  <footer class="bg-dark text-white text-center py-4">
-    &copy; 2025 Melvin Gungog | All rights reserved.
+  <footer class="text-center">
+    <p class="mb-0">&copy; 2025 Melvin Gungog. Crafted with passion for building great software.</p>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
