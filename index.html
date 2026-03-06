@@ -1,690 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Melvin Gungog | Full-Stack Software Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Full-stack software engineer specializing in mobile and web development, AI integration, and cloud solutions.">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1e40af;
-      --secondary: #475569;
-      --text-light: #64748b;
-      --accent: #f59e0b;
-      --success: #10b981;
-      --dark: #0f172a;
-      --light: #f8fafc;
-      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    }
-
-    * {
-      scroll-behavior: smooth;
-    }
-
-    html {
-      scroll-padding-top: 80px;
-    }
-
-    body {
-      background: var(--light);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: var(--dark);
-      line-height: 1.7;
-      padding-top: 70px;
-    }
-
-    /* Navbar */
-    .navbar {
-      background: rgba(255, 255, 255, 0.95) !important;
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow-sm);
-      padding: 1rem 0;
-      transition: all 0.3s ease;
-    }
-
-    .navbar-brand {
-      font-weight: 800;
-      font-size: 1.25rem;
-      color: #0f172a !important;
-      letter-spacing: -0.5px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-link {
-      color: #475569 !important;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.5rem 1rem !important;
-      transition: all 0.2s ease;
-      position: relative;
-    }
-
-    .nav-link:hover {
-      color: var(--primary) !important;
-      transform: translateY(-1px);
-    }
-
-    .navbar-toggler {
-      border-color: rgba(71, 85, 105, 0.3);
-    }
-
-    .navbar-toggler:focus {
-      box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-
-    .nav-link:hover::after {
-      width: 60%;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: var(--gradient);
-      color: #fff;
-      padding: 120px 0 100px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-      opacity: 0.5;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .profile-img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      margin-bottom: 24px;
-      transition: transform 0.3s ease;
-      animation: fadeInUp 0.6s ease;
-    }
-
-    .profile-img:hover {
-      transform: scale(1.05);
-    }
-
-    .hero h1 {
-      font-weight: 800;
-      font-size: 3rem;
-      margin-bottom: 16px;
-      letter-spacing: -1px;
-      animation: fadeInUp 0.6s ease 0.1s both;
-    }
-
-    .hero .lead {
-      font-size: 1.3rem;
-      font-weight: 400;
-      opacity: 0.95;
-      margin-bottom: 32px;
-      animation: fadeInUp 0.6s ease 0.2s both;
-    }
-
-    .btn-hero {
-      background: white;
-      color: #2563eb !important;
-      font-weight: 700;
-      padding: 14px 32px;
-      border-radius: 50px;
-      border: none;
-      font-size: 1rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.6s ease 0.3s both;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-hero:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-      color: #1e40af !important;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-    }
-
-    /* Section Styling */
-    section {
-      padding: 80px 0;
-      animation: fadeIn 0.8s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .section-title {
-      font-weight: 800;
-      font-size: 2.5rem;
-      margin-bottom: 48px;
-      color: #0f172a;
-      position: relative;
-      display: inline-block;
-      letter-spacing: -1px;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: var(--gradient);
-      border-radius: 2px;
-    }
-
-    /* About Section */
-    #about p {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: #334155;
-      max-width: 900px;
-      font-weight: 400;
-    }
-
-    /* Skills Section */
-    .skills-category {
-      margin-bottom: 32px;
-    }
-
-    .skills-category h6 {
-      font-weight: 700;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #0f172a;
-      margin-bottom: 16px;
-    }
-
-    .badge {
-      padding: 10px 18px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      border-radius: 50px;
-      margin: 6px 4px;
-      transition: all 0.2s ease;
-      background: #f1f5f9;
-      color: #1e293b;
-      border: 1px solid #cbd5e1;
-    }
-
-    .badge:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    /* Project Cards */
-    .project-card {
-      transition: all 0.3s ease;
-      border: none;
-      border-radius: 16px;
-      overflow: hidden;
-      background: white;
-      box-shadow: var(--shadow-sm);
-      height: 100%;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-xl);
-    }
-
-    .project-card .card-body {
-      padding: 28px;
-    }
-
-    .project-card .badge {
-      font-size: 0.75rem;
-      padding: 6px 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border: none !important;
-    }
-
-    .project-card .badge.bg-primary {
-      background: #2563eb !important;
-      color: white !important;
-    }
-
-    .project-card .badge.bg-success {
-      background: #10b981 !important;
-      color: white !important;
-    }
-
-    .project-card .badge.bg-info {
-      background: #06b6d4 !important;
-      color: white !important;
-    }
-
-    .project-card h5 {
-      font-weight: 700;
-      font-size: 1.3rem;
-      margin: 16px 0 12px;
-      color: #0f172a;
-    }
-
-    .project-card .card-text {
-      color: #334155;
-      line-height: 1.7;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-    }
-
-    .project-card .text-muted {
-      font-size: 0.85rem;
-      color: #64748b !important;
-      font-weight: 500;
-    }
-
-    .btn-outline-primary {
-      border: 2px solid #2563eb;
-      color: #2563eb;
-      font-weight: 600;
-      padding: 8px 24px;
-      border-radius: 50px;
-      transition: all 0.2s ease;
-      background: white;
-    }
-
-    .btn-outline-primary:hover {
-      background: #2563eb;
-      color: white !important;
-      border-color: #2563eb;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* Experience Section */
-    .list-group-item {
-      border: none;
-      background: white;
-      border-radius: 12px;
-      padding: 28px;
-      margin-bottom: 20px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
-    }
-
-    .list-group-item:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateX(4px);
-    }
-
-    .list-group-item strong {
-      color: #0f172a;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .list-group-item {
-      color: #334155;
-    }
-
-    .list-group-item .text-muted {
-      color: #64748b !important;
-      font-weight: 500;
-    }
-
-    .list-group-item ul {
-      margin-top: 16px;
-      padding-left: 24px;
-    }
-
-    .list-group-item ul li {
-      margin-bottom: 10px;
-      color: #334155;
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-
-    /* Contact Section */
-    #contact {
-      background: white;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    #contact .lead {
-      color: #475569 !important;
-    }
-
-    #contact strong {
-      color: #0f172a;
-    }
-
-    #contact a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-
-    #contact a:hover {
-      color: var(--primary-dark);
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 32px 0;
-      margin-top: 80px;
-      font-size: 0.95rem;
-    }
-
-    footer p {
-      margin: 0;
-      font-weight: 400;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero {
-        padding: 80px 0 60px;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero .lead {
-        font-size: 1.1rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      section {
-        padding: 60px 0;
-      }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Melvin Gungog — Backend Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">MG</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="Melvin%20Gungog%20Resume.docx.pdf" download>Download CV</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <section class="hero">
-    <div class="hero-content">
-      <img src="melvz.jpg" alt="Melvin Gungog - Full-Stack Software Engineer" class="profile-img">
-      <h1 class="display-5 fw-bold">Melvin Gungog</h1>
-      <p class="lead">Backend Developer | E-commerce & Warehouse Systems | Cloud Architecture</p>
-      <a href="Melvin%20Gungog%20Resume.docx.pdf" class="btn btn-hero" download>Download CV</a>
-    </div>
-  </section>
-  <div class="container">
-    <section id="about">
-      <h2 class="section-title">About Me</h2>
-      <p>
-        Full-stack software engineer currently working as a Backend Developer at an Australian e-commerce company, specializing in warehouse management and fulfillment systems. Expert in building scalable microservices using Java (Spring Boot), Node.js, TypeScript, and event-driven Pub/Sub architecture on Google Cloud Platform. Experienced in mobile and web development, AI integration, and cloud solutions. Recent focus includes warehouse automation, real-time order processing, mental wellness technology, and educational platforms. I create production-ready, user-centric solutions with clean architecture and modern best practices.
-      </p>
-    </section>
-    <section id="skills">
-      <h2 class="section-title">Skills & Technologies</h2>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="skills-category">
-            <h6>Frontend & Mobile</h6>
-            <span class="badge">React</span>
-            <span class="badge">React Native</span>
-            <span class="badge">Next.js</span>
-            <span class="badge">Expo</span>
-            <span class="badge">Vite</span>
-            <span class="badge">Tailwind CSS</span>
-            <span class="badge">NativeWind</span>
-          </div>
 
-          <div class="skills-category">
-            <h6>Backend & APIs</h6>
-            <span class="badge">Java (Spring Boot)</span>
-            <span class="badge">Node.js</span>
-            <span class="badge">TypeScript</span>
-            <span class="badge">Express.js</span>
-            <span class="badge">REST APIs</span>
-            <span class="badge">Supabase</span>
-          </div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
 
-          <div class="skills-category">
-            <h6>Database & Cloud</h6>
-            <span class="badge">PostgreSQL</span>
-            <span class="badge">MySQL</span>
-            <span class="badge">BigQuery</span>
-            <span class="badge">Supabase</span>
-            <span class="badge">Google Cloud Platform</span>
-            <span class="badge">Pub/Sub Architecture</span>
-          </div>
-
-          <div class="skills-category">
-            <h6>AI & Integrations</h6>
-            <span class="badge">AI Integration (Anthropic SDK)</span>
-            <span class="badge">Braze (Customer Engagement)</span>
-            <span class="badge">Analytics (Amplitude, Sentry)</span>
-            <span class="badge">Payment Systems (PayPal)</span>
-            <span class="badge">Alert Monitoring & Metrics</span>
-          </div>
-
-          <div class="skills-category">
-            <h6>Tools & Practices</h6>
-            <span class="badge">Git</span>
-            <span class="badge">Docker</span>
-            <span class="badge">Jest</span>
-            <span class="badge">CI/CD</span>
-            <span class="badge">Agile/Scrum</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="projects">
-      <h2 class="section-title">Projects</h2>
-      <div class="row">
-        <div class="col-md-6 mb-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <span class="badge bg-primary mb-2">Featured</span>
-              <h5 class="card-title">Serenity - Mental Wellness App</h5>
-              <p class="card-text">Comprehensive mental wellness platform with 37+ screens including mood tracking, AI-powered insights, therapeutic games, and journaling. Built with React Native (Expo), TypeScript, Supabase, and Anthropic AI SDK. Features premium subscription system with PayPal integration.</p>
-              <p class="card-text"><small class="text-muted">React Native • Next.js • TypeScript • Supabase • AI Integration</small></p>
-              <a href="https://github.com/iammelvz/serenity-mobile" class="btn btn-outline-primary btn-sm" target="_blank">Mobile App</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <span class="badge bg-success mb-2">Production Ready</span>
-              <h5 class="card-title">Serenity Admin Dashboard</h5>
-              <p class="card-text">Real-time admin dashboard for monitoring user engagement, subscriptions, mood analytics, and content management. Built with Next.js 15, TypeScript, Tailwind CSS, and Supabase. Features revenue tracking, churn analysis, and feedback management.</p>
-              <p class="card-text"><small class="text-muted">Next.js • TypeScript • Tailwind CSS • Recharts • Supabase</small></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <span class="badge bg-info mb-2">MVP Complete</span>
-              <h5 class="card-title">Kabisado - Board Exam Reviewer</h5>
-              <p class="card-text">Offline-first mobile app for Filipino board exam preparation with gamification, streak tracking, and freemium model. Features quiz interface, subject-based learning, and progress analytics. Built with Expo, TypeScript, and NativeWind.</p>
-              <p class="card-text"><small class="text-muted">React Native • Expo • TypeScript • NativeWind • AsyncStorage</small></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <h5 class="card-title">Delivery Promise Tech Design</h5>
-              <p class="card-text">Technical design for calculating delivery promise with fulfilment capacity optimization. Focused on improving logistics efficiency and customer satisfaction through intelligent capacity planning.</p>
-              <p class="card-text"><small class="text-muted">System Design • Logistics • Optimization</small></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <h5 class="card-title">Todo List Service API</h5>
-              <p class="card-text">RESTful API for todo list app using Node.js, TypeScript, Express, MySQL, deployed on Google Cloud Functions.</p>
-              <a href="https://github.com/wuweimelvz/todo-ts-wc" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 mb-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <h5 class="card-title">More Projects</h5>
-              <p class="card-text">See more on my <a href="https://github.com/wuweimelvz" target="_blank">GitHub</a>.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="experience">
-      <h2 class="section-title">Experience</h2>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <strong>Backend Developer</strong> – Australian E-commerce Company (2022–Present)<br>
-          <span class="text-muted">Full-Time • Warehouse & Fulfillment Systems</span>
-          <ul class="mt-2">
-            <li>Develop and maintain warehouse management tools covering the complete order lifecycle: order-confirmed, picked, pack, dispatched, and delivered processes</li>
-            <li>Design and implement <strong>Pub/Sub architecture</strong> using Google Cloud Platform for scalable, event-driven microservices communication</li>
-            <li>Build backend services with <strong>Java (Spring Boot)</strong>, <strong>Node.js</strong>, and <strong>TypeScript</strong> for order processing, inventory management, and logistics automation</li>
-            <li>Integrate <strong>Braze</strong> for customer communication workflows including order status updates, shipping notifications, and delivery confirmations</li>
-            <li>Work with <strong>BigQuery</strong> and <strong>MySQL</strong> for data warehousing, analytics, and transactional database operations</li>
-            <li>Develop frontend interfaces using <strong>Next.js</strong>, vanilla JavaScript, and HTML for warehouse operations dashboards and tools</li>
-            <li>Create technical design documentation for new features, ensuring scalability and maintainability of warehouse systems</li>
-            <li>Implement <strong>alert monitoring</strong> and <strong>metrics dashboards</strong> for tracking system health, performance, and operational KPIs</li>
-            <li>Collaborate with cross-functional teams in an Agile environment to deliver high-quality solutions for logistics optimization</li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <strong>Full-Stack Software Engineer</strong> – Personal Projects & Development (2022–Present)<br>
-          <span class="text-muted">Part-Time • Recent Work (Last 6 Months):</span>
-          <ul class="mt-2">
-            <li>Built <strong>Serenity</strong>, a production-ready mental wellness mobile app with 37+ screens, AI integration, and premium subscription system serving mental health support</li>
-            <li>Developed admin dashboard using Next.js 15 for real-time monitoring of user analytics, subscriptions, and revenue tracking with comprehensive data visualization</li>
-            <li>Created <strong>Kabisado</strong>, an offline-first board exam reviewer app for the Filipino market with gamification and streak tracking</li>
-            <li>Architected full-stack applications using React Native, Next.js, TypeScript, Supabase, and integrated AI capabilities (Anthropic SDK)</li>
-            <li>Implemented secure authentication systems, payment processing (PayPal), analytics (Amplitude, Sentry), and real-time database synchronization</li>
-            <li>Designed technical solutions for delivery promise optimization with fulfilment capacity calculations</li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <strong>IT Specialist</strong> – Previous Role (Pre-2022)<br>
-          Managed IT infrastructure, supported software deployments, and provided technical solutions.
-        </li>
-      </ul>
-    </section>
-    <section id="contact" class="mb-5">
-      <h2 class="section-title">Get In Touch</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div style="background: white; border-radius: 16px; padding: 48px; box-shadow: var(--shadow-sm);">
-            <p class="lead text-center mb-4" style="color: var(--secondary);">
-              I'm always interested in hearing about new projects and opportunities.
-            </p>
-            <div class="row text-center">
-              <div class="col-md-4 mb-3">
-                <div style="padding: 24px;">
-                  <div style="font-size: 2rem; margin-bottom: 12px;">📧</div>
-                  <strong style="display: block; margin-bottom: 8px; color: var(--dark);">Email</strong>
-                  <a href="mailto:wuweimelvz@gmail.com">wuweimelvz@gmail.com</a>
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <div style="padding: 24px;">
-                  <div style="font-size: 2rem; margin-bottom: 12px;">💼</div>
-                  <strong style="display: block; margin-bottom: 8px; color: var(--dark);">LinkedIn</strong>
-                  <a href="https://www.linkedin.com/in/melvin-gungog-95040327b" target="_blank">Connect with me</a>
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <div style="padding: 24px;">
-                  <div style="font-size: 2rem; margin-bottom: 12px;">💻</div>
-                  <strong style="display: block; margin-bottom: 8px; color: var(--dark);">GitHub</strong>
-                  <a href="https://github.com/wuweimelvz" target="_blank">View my code</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- ─── NAV ────────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">M<span>.</span>Gungog</a>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a href="mailto:wuweimelvz@gmail.com" class="nav-cta">Hire Me →</a>
   </div>
-  <footer class="text-center">
-    <p class="mb-0">&copy; 2025 Melvin Gungog. Crafted with passion for building great software.</p>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</nav>
+
+<!-- ─── HERO ────────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-badge"><span class="dot"></span> Open to Relocation</div>
+        <h1>
+          Backend Engineer
+          <span class="accent-line">who ships real systems.</span>
+        </h1>
+        <p class="hero-role">
+          9+ years building <strong>cloud-native microservices</strong> at scale —<br/>
+          currently at Pet Circle, Australia's leading pet e-commerce platform.
+        </p>
+        <p class="hero-desc">
+          I specialize in event-driven backend architecture using Java Spring Boot, Node.js, and
+          Google Cloud Platform. From designing real-time fulfillment pipelines to building
+          consumer apps from scratch — I build things that run in production and hold up under pressure.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">View My Work ↓</a>
+          <a href="Melvin Gungog Resume.docx.pdf" class="btn-ghost" download>Download CV</a>
+        </div>
+        <p style="font-size:0.8rem; color:var(--muted); margin-bottom:12px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600;">Actively targeting</p>
+        <div class="hero-flags">
+          <span class="flag-chip"><span>🇸🇬</span> Singapore</span>
+          <span class="flag-chip"><span>🇨🇦</span> Canada</span>
+          <span class="flag-chip"><span>🇳🇿</span> New Zealand</span>
+          <span class="flag-chip"><span>🌏</span> Remote-First</span>
+        </div>
+      </div>
+
+      <div class="hero-card fade-up">
+        <div class="hero-avatar">MG</div>
+        <h3>Melvin U. Gungog</h3>
+        <p class="subtitle">Backend Engineer · Cebu, Philippines 🇵🇭</p>
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="stat-num">9+</div>
+            <div class="stat-label">Years of<br/>Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Companies<br/>& Clients</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Production<br/>Apps Built</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">AU</div>
+            <div class="stat-label">Current<br/>Market</div>
+          </div>
+        </div>
+        <div class="stack-chips">
+          <span class="chip">Java Spring Boot</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">GCP</span>
+          <span class="chip">Pub/Sub</span>
+          <span class="chip">React Native</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SKILLS ───────────────────────────────────────────────────────── -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-label">Technical Expertise</div>
+    <h2>Stack &amp; Skills</h2>
+    <p class="section-desc">Built over 9 years across enterprise clients, Australian e-commerce, and self-funded side products.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card fade-up">
+        <div class="skill-icon">⚙️</div>
+        <h4>Backend Engineering</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Java 8/11/17</span>
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">NestJS</span>
+          <span class="skill-tag">Express.js</span>
+          <span class="skill-tag">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up" style="transition-delay:0.05s">
+        <div class="skill-icon">☁️</div>
+        <h4>Cloud &amp; Infrastructure</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">GCP Pub/Sub</span>
+          <span class="skill-tag">Cloud Functions</span>
+          <span class="skill-tag">Cloud Run</span>
+          <span class="skill-tag">BigQuery</span>
+          <span class="skill-tag">GCS</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">GitHub Actions</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up" style="transition-delay:0.1s">
+        <div class="skill-icon">🗄️</div>
+        <h4>Databases</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">BigQuery</span>
+          <span class="skill-tag">OracleDB</span>
+          <span class="skill-tag">Redis</span>
+          <span class="skill-tag">Supabase</span>
+          <span class="skill-tag">ArangoDB</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up" style="transition-delay:0.15s">
+        <div class="skill-icon">📱</div>
+        <h4>Frontend &amp; Mobile</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">React Native</span>
+          <span class="skill-tag">Expo</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">Vite</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up" style="transition-delay:0.2s">
+        <div class="skill-icon">🔗</div>
+        <h4>Integrations &amp; Platforms</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Commercetools</span>
+          <span class="skill-tag">Braze</span>
+          <span class="skill-tag">Salesforce</span>
+          <span class="skill-tag">HubSpot</span>
+          <span class="skill-tag">Mailchimp</span>
+          <span class="skill-tag">Supabase Auth</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up" style="transition-delay:0.25s">
+        <div class="skill-icon">🤖</div>
+        <h4>AI &amp; Emerging Tech</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Anthropic Claude API</span>
+          <span class="skill-tag">Gemini API</span>
+          <span class="skill-tag">ElevenLabs TTS</span>
+          <span class="skill-tag">Remotion</span>
+          <span class="skill-tag">Supabase Edge Functions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EXPERIENCE ───────────────────────────────────────────────────── -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-label">Work History</div>
+    <h2>Experience</h2>
+    <p class="section-desc">9+ years across e-commerce logistics, enterprise software, US SaaS integrations, and retail systems.</p>
+
+    <div class="timeline">
+
+      <!-- Pet Circle -->
+      <div class="exp-item current fade-up">
+        <div class="exp-header">
+          <div class="exp-title">Mid-Level Backend Engineer</div>
+          <div class="exp-date">Jun 2022 – Present · 3 yrs</div>
+        </div>
+        <div class="exp-company">Pet Circle — Australia's #1 Online Pet Store</div>
+        <div class="exp-location">📍 Remote (Cebu, Philippines → Sydney, Australia)</div>
+        <div class="exp-body">
+          <ul>
+            <li>Build and maintain <strong>event-driven fulfillment microservices</strong> on GCP Pub/Sub, handling the full order lifecycle: confirmed → picked → packed → dispatched → delivered</li>
+            <li>Engineered a <strong>dual-capacity model</strong> — a system that treats fulfillment center capacity and courier capacity as parallel constraints, directly improving delivery promise accuracy for customers</li>
+            <li>Developed a <strong>Cloud Function-based delivery code update pipeline</strong> integrated with Commercetools, enabling real-time order routing and automated fulfillment state transitions</li>
+            <li>Authored v4.0 of the <strong>capacity forecasting technical design</strong> — a living document covering audit trails, Mermaid architecture diagrams, and forecasting logic used across the team</li>
+            <li>Integrated <strong>Braze</strong> for transactional customer communication: shipping updates, delivery notifications, and order status flows</li>
+            <li>Works with <strong>BigQuery and MySQL</strong> for operational analytics, data warehousing, and performance reporting dashboards</li>
+            <li>Implements <strong>GCP Logging, Alerts, and monitoring policies</strong> to maintain observability and SLA compliance across production systems</li>
+          </ul>
+          <div class="exp-stack">
+            <span class="exp-tag">Java Spring Boot</span>
+            <span class="exp-tag">Node.js</span>
+            <span class="exp-tag">TypeScript</span>
+            <span class="exp-tag">GCP Pub/Sub</span>
+            <span class="exp-tag">Cloud Functions</span>
+            <span class="exp-tag">BigQuery</span>
+            <span class="exp-tag">Commercetools</span>
+            <span class="exp-tag">Braze</span>
+            <span class="exp-tag">Docker</span>
+            <span class="exp-tag">Redis</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fujitsu -->
+      <div class="exp-item fade-up">
+        <div class="exp-header">
+          <div class="exp-title">Full Stack Developer</div>
+          <div class="exp-date">Feb 2021 – Apr 2022 · 1 yr 2 mos</div>
+        </div>
+        <div class="exp-company">Fujitsu Global IT Services &amp; Solutions</div>
+        <div class="exp-location">📍 Cebu City, Philippines (Japanese Enterprise Clients)</div>
+        <div class="exp-body">
+          <ul>
+            <li>Built enterprise web applications for Japanese clients using <strong>Java (x33 Framework)</strong>, JSP, and OracleSQL</li>
+            <li>Delivered in a structured <strong>Waterfall environment</strong> with strict documentation standards — developed strong habits for specification compliance and formal test coverage</li>
+            <li>Wrote unit tests using <strong>JUnit4</strong>, performed DB query optimization, and collaborated in cross-cultural engineering teams</li>
+          </ul>
+          <div class="exp-stack">
+            <span class="exp-tag">Java 1.6</span>
+            <span class="exp-tag">x33 Framework</span>
+            <span class="exp-tag">OracleSQL</span>
+            <span class="exp-tag">JSP</span>
+            <span class="exp-tag">JUnit4</span>
+            <span class="exp-tag">SVN</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cazoomi -->
+      <div class="exp-item fade-up">
+        <div class="exp-header">
+          <div class="exp-title">Full Stack Developer</div>
+          <div class="exp-date">Jan 2018 – Dec 2020 · 3 yrs</div>
+        </div>
+        <div class="exp-company">Cazoomi — San Francisco, California (Remote)</div>
+        <div class="exp-location">📍 Philippines (US-based client, international remote work)</div>
+        <div class="exp-body">
+          <ul>
+            <li>Built and maintained <strong>bi-directional CRM↔ESP sync pipelines</strong> connecting Salesforce, HubSpot, Zoho CRM, and Microsoft Dynamics 365 with Mailchimp, Constant Contact, and ActiveCampaign</li>
+            <li>Developed backend data sync services in <strong>Java (Play Framework)</strong> with ArangoDB and Memcached — handling high-frequency record synchronization with conflict resolution logic</li>
+            <li>Provided <strong>Tier 3 technical support</strong> — diagnosing and resolving complex integration failures across customer environments, requiring deep knowledge of third-party APIs</li>
+          </ul>
+          <div class="exp-stack">
+            <span class="exp-tag">Java Play Framework</span>
+            <span class="exp-tag">ArangoDB</span>
+            <span class="exp-tag">Memcached</span>
+            <span class="exp-tag">Salesforce API</span>
+            <span class="exp-tag">HubSpot API</span>
+            <span class="exp-tag">Mailchimp API</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metro Retail -->
+      <div class="exp-item fade-up">
+        <div class="exp-header">
+          <div class="exp-title">Application Support Specialist</div>
+          <div class="exp-date">May 2016 – Jan 2018 · 1 yr 8 mos</div>
+        </div>
+        <div class="exp-company">Metro Retail Stores Group Inc.</div>
+        <div class="exp-location">📍 Mandaue City, Philippines</div>
+        <div class="exp-body">
+          <ul>
+            <li>Built <strong>desktop automation tools</strong> in Java and PHP — reducing manual processing time for Oracle Retail operations across store branches</li>
+            <li>Managed and supported <strong>Oracle Retail applications</strong> — POS, ReSA, RMS, and EBS Ledger — providing Tier 2 support and resolving escalated system issues</li>
+            <li>Foundation role that established strong habits in <strong>SQL query performance</strong>, system debugging, and cross-functional stakeholder communication</li>
+          </ul>
+          <div class="exp-stack">
+            <span class="exp-tag">Java 1.5/1.6</span>
+            <span class="exp-tag">PHP CodeIgniter</span>
+            <span class="exp-tag">OracleSQL</span>
+            <span class="exp-tag">Oracle Retail POS</span>
+            <span class="exp-tag">EBS Ledger</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECTS ──────────────────────────────────────────────────────── -->
+<section id="projects">
+  <div class="wrap">
+    <div class="section-label">Side Work &amp; Personal Projects</div>
+    <h2>What I Build on My Own</h2>
+    <p class="section-desc">Beyond my day job, I build consumer products — full-stack, shipped, and monetized.</p>
+
+    <div class="projects-grid">
+
+      <!-- Serenity — Featured -->
+      <div class="project-card featured fade-up">
+        <div>
+          <div class="proj-badge badge-featured">⭐ Featured</div>
+          <h3>Serenity — Mental Wellness App</h3>
+          <p class="proj-tagline">AI-powered mobile app for mental health support</p>
+          <p>A full-stack consumer mobile app built from zero with 37+ screens including mood tracking, AI-powered journaling insights via the Anthropic Claude API, guided breathing exercises, habit tracking, and therapeutic games. Includes a complete Supabase backend with Google OAuth, a premium subscription tier with PayPal, and a Next.js admin dashboard for monitoring user analytics and revenue.</p>
+          <div class="proj-metrics">
+            <div class="metric"><div class="metric-num">37+</div><div class="metric-label">Screens</div></div>
+            <div class="metric"><div class="metric-num">11</div><div class="metric-label">Features</div></div>
+            <div class="metric"><div class="metric-num">3</div><div class="metric-label">AI Integrations</div></div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">React Native</span><span class="proj-tag">Expo</span>
+            <span class="proj-tag">TypeScript</span><span class="proj-tag">Supabase</span>
+            <span class="proj-tag">Anthropic SDK</span><span class="proj-tag">Next.js</span>
+            <span class="proj-tag">PayPal</span><span class="proj-tag">Tailwind CSS</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/iammelvz/serenity-mobile" class="proj-link" target="_blank">GitHub →</a>
+          </div>
+        </div>
+        <div class="featured-visual">
+          <div class="screen-mock">
+            <div class="screen-header">📊 Mood Analytics</div>
+            <div class="screen-row"><span class="label">Today's mood</span><span class="value">😊 Good</span></div>
+            <div class="screen-row"><span class="label">7-day streak</span><span class="value">🔥 Active</span></div>
+            <div class="screen-row"><span class="label">Breathing sessions</span><span class="value">12 this week</span></div>
+            <div class="bar"><div class="bar-fill" style="width:72%"></div></div>
+          </div>
+          <div class="screen-mock">
+            <div class="screen-header">🤖 AI Journal Insight</div>
+            <div class="screen-row"><span class="label">Sentiment</span><span class="value" style="color:var(--green)">Positive ↑</span></div>
+            <div class="screen-row"><span class="label">Keywords</span><span class="value">focus, calm, growth</span></div>
+            <div class="bar"><div class="bar-fill" style="width:85%; background:var(--green)"></div></div>
+          </div>
+          <div class="screen-mock">
+            <div class="screen-header">💰 Admin Dashboard</div>
+            <div class="screen-row"><span class="label">Active subscriptions</span><span class="value">—</span></div>
+            <div class="screen-row"><span class="label">Churn rate</span><span class="value">—</span></div>
+            <div class="screen-row"><span class="label">Avg session</span><span class="value">—</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kabisado -->
+      <div class="project-card fade-up">
+        <div class="proj-badge badge-shipped">✓ Shipped</div>
+        <h3>Kabisado</h3>
+        <p class="proj-tagline">Civil Service Exam Reviewer for Filipino Professionals</p>
+        <p>Offline-first mobile app targeting the Philippine Civil Service Exam market. Features a gamified quiz engine with subject-based learning paths, daily streaks, progress analytics, and a freemium model with AdMob and GCash payment integration. Designed for low-connectivity environments common in the provinces.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">React Native</span><span class="proj-tag">Expo</span>
+          <span class="proj-tag">TypeScript</span><span class="proj-tag">NativeWind</span>
+          <span class="proj-tag">AsyncStorage</span><span class="proj-tag">AdMob</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/wuweimelvz" class="proj-link" target="_blank">GitHub →</a>
+        </div>
+      </div>
+
+      <!-- Kiko's World -->
+      <div class="project-card fade-up" style="transition-delay:0.05s">
+        <div class="proj-badge badge-wip">🚧 In Progress</div>
+        <h3>Kiko's World</h3>
+        <p class="proj-tagline">AI-Automated Educational YouTube Channel for Kids</p>
+        <p>End-to-end AI content pipeline for a children's educational YouTube channel. Automates script generation (Gemini API), voiceover (ElevenLabs), animated video rendering (Remotion + Claude API), and publishing (YouTube API) — targeting 24 episodes over 3 months with minimal human intervention.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Gemini API</span><span class="proj-tag">ElevenLabs</span>
+          <span class="proj-tag">Remotion</span><span class="proj-tag">Claude API</span>
+          <span class="proj-tag">YouTube API</span><span class="proj-tag">Node.js</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─────────────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-label">The Person</div>
+    <h2>About Me</h2>
+
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p>
+          I'm a backend engineer based in <strong>Cebu, Philippines</strong> with 9+ years of experience 
+          across logistics, enterprise, SaaS, and retail. My day job is at <strong>Pet Circle</strong> — 
+          Australia's leading pet e-commerce company — where I work on the fulfillment and 
+          warehouse systems that make sure millions of orders reach customers on time.
+        </p>
+        <p>
+          Outside of work I build consumer apps from scratch — not as tutorials, but as real 
+          products with users, analytics, and revenue models. <strong>Serenity</strong> (mental wellness), 
+          <strong>Kabisado</strong> (exam prep), and <strong>Kiko's World</strong> (AI video pipeline) are all 
+          things I built end-to-end because I enjoy the full product cycle, not just the backend ticket.
+        </p>
+        <p>
+          I'm currently working toward my <strong>first international relocation</strong> — 
+          targeting Singapore, Canada, or New Zealand, where I can contribute to engineering 
+          teams building things at a larger scale. I'm looking for an engineering role 
+          where I can grow into a senior position and eventually lead.
+        </p>
+        <p>
+          I also run a <strong>family YouTube channel</strong> with my kids (Mavy &amp; Maki) and have a 
+          deep interest in <a href="https://github.com/wuweimelvz" target="_blank">open source contributions</a> 
+          and AI tooling for developers.
+        </p>
+      </div>
+
+      <div class="about-facts fade-up">
+        <div class="fact">
+          <div class="fact-icon">🎓</div>
+          <div>
+            <div class="fact-title">B.S. Information Technology</div>
+            <div class="fact-desc">Cebu Institute of Technology – University · Class of 2016</div>
+          </div>
+        </div>
+        <div class="fact">
+          <div class="fact-icon">🌏</div>
+          <div>
+            <div class="fact-title">Open to Relocation</div>
+            <div class="fact-desc">Actively targeting Singapore (EP), Canada (Express Entry / GTS), and New Zealand (AEWV / Green List). Available with employer visa sponsorship.</div>
+          </div>
+        </div>
+        <div class="fact">
+          <div class="fact-icon">🗣️</div>
+          <div>
+            <div class="fact-title">Languages</div>
+            <div class="fact-desc">English (professional proficiency) · Filipino (native)</div>
+          </div>
+        </div>
+        <div class="fact">
+          <div class="fact-icon">💼</div>
+          <div>
+            <div class="fact-title">Work Style</div>
+            <div class="fact-desc">Remote-first, async-comfortable, Agile/Scrum. Experience working with Australian, US, and Japanese teams across timezones.</div>
+          </div>
+        </div>
+        <div class="fact">
+          <div class="fact-icon">📈</div>
+          <div>
+            <div class="fact-title">Next Goal</div>
+            <div class="fact-desc">Senior Backend Engineer role at a product company in SG, CA, or NZ — ideally working on platform-level systems or developer tooling.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-label" style="justify-content:center;">Let's Talk</div>
+    <div class="contact-card fade-up">
+      <h2>Available for the right opportunity.</h2>
+      <p>
+        Whether you're a recruiter, a hiring manager, or a fellow engineer — I'm always open to a conversation.<br/>
+        Fastest response via email. I typically reply within 24 hours.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:wuweimelvz@gmail.com" class="contact-link">📧 wuweimelvz@gmail.com</a>
+        <a href="https://www.linkedin.com/in/melvin-gungog-95040327b/" class="contact-link" target="_blank">💼 LinkedIn</a>
+        <a href="https://github.com/wuweimelvz" class="contact-link" target="_blank">💻 GitHub</a>
+        <a href="Melvin Gungog Resume.docx.pdf" class="contact-link" download>📄 Download CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © 2025 Melvin U. Gungog · Built with care · Cebu, Philippines 🇵🇭
+  </div>
+</footer>
+
+<script>
+// ─── Scroll-triggered fade-in ────────────────────────────────────────
+const observer = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } }),
+  { threshold: 0.12 }
+);
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ─── Nav shadow on scroll ────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow =
+    window.scrollY > 20 ? '0 4px 32px rgba(0,0,0,0.3)' : 'none';
+});
+</script>
 </body>
 </html>
