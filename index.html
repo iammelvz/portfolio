@@ -39,12 +39,14 @@
         </h1>
         <p class="hero-role">
           9+ years building <strong>cloud-native microservices</strong> at scale —<br/>
-          currently at Pet Circle, Australia's leading pet e-commerce platform.
+          most recently at Pet Circle, Australia's leading pet e-commerce platform.
         </p>
         <p class="hero-desc">
-          I specialize in event-driven backend architecture using Java Spring Boot, Node.js, and
-          Google Cloud Platform. From designing real-time fulfillment pipelines to building
-          consumer apps from scratch — I build things that run in production and hold up under pressure.
+          Strong in event-driven architecture on Google Cloud, NestJS/Node.js and Java Spring Boot,
+          Commercetools integrations, and database design and optimisation. Takes projects end to end
+          — requirements, technical design, implementation, testing, release, and production support —
+          with no day-to-day supervision. Actively builds AI into the delivery workflow: coding agents,
+          reusable Skills, and a custom MCP server.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn-primary">View My Work ↓</a>
@@ -73,12 +75,12 @@
             <div class="stat-label">Companies<br/>& Clients</div>
           </div>
           <div class="stat">
-            <div class="stat-num">3</div>
+            <div class="stat-num">5+</div>
             <div class="stat-label">Production<br/>Apps Built</div>
           </div>
           <div class="stat">
-            <div class="stat-num">AU</div>
-            <div class="stat-label">Current<br/>Market</div>
+            <div class="stat-num">🌏</div>
+            <div class="stat-label">Open to<br/>Relocation</div>
           </div>
         </div>
         <div class="stack-chips">
@@ -113,6 +115,8 @@
           <span class="skill-tag">NestJS</span>
           <span class="skill-tag">Express.js</span>
           <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">PHP</span>
         </div>
       </div>
       <div class="skill-card fade-up" style="transition-delay:0.05s">
@@ -137,6 +141,7 @@
           <span class="skill-tag">MySQL</span>
           <span class="skill-tag">BigQuery</span>
           <span class="skill-tag">OracleDB</span>
+          <span class="skill-tag">MongoDB</span>
           <span class="skill-tag">Redis</span>
           <span class="skill-tag">Supabase</span>
           <span class="skill-tag">ArangoDB</span>
@@ -191,34 +196,34 @@
     <div class="timeline">
 
       <!-- Pet Circle -->
-      <div class="exp-item current fade-up">
+      <div class="exp-item fade-up">
         <div class="exp-header">
-          <div class="exp-title">Mid-Level Backend Engineer</div>
-          <div class="exp-date">Jun 2022 – Present · 3 yrs</div>
+          <div class="exp-title">Backend Engineer</div>
+          <div class="exp-date">Jun 2022 – Oct 2026 · 4 yrs 4 mos</div>
         </div>
-        <div class="exp-company">Pet Circle — Australia's #1 Online Pet Store</div>
-        <div class="exp-location">📍 Remote (Cebu, Philippines → Sydney, Australia)</div>
+        <div class="exp-company">Pet Circle — Australian e-commerce company</div>
+        <div class="exp-location">📍 Remote from Cebu, Philippines</div>
         <div class="exp-body">
           <ul>
-            <li>Build and maintain <strong>event-driven fulfillment microservices</strong> on GCP Pub/Sub, handling the full order lifecycle: confirmed → picked → packed → dispatched → delivered</li>
-            <li>Engineered a <strong>dual-capacity model</strong> — a system that treats fulfillment center capacity and courier capacity as parallel constraints, directly improving delivery promise accuracy for customers</li>
-            <li>Developed a <strong>Cloud Function-based delivery code update pipeline</strong> integrated with Commercetools, enabling real-time order routing and automated fulfillment state transitions</li>
-            <li>Authored v4.0 of the <strong>capacity forecasting technical design</strong> — a living document covering audit trails, Mermaid architecture diagrams, and forecasting logic used across the team</li>
-            <li>Integrated <strong>Braze</strong> for transactional customer communication: shipping updates, delivery notifications, and order status flows</li>
-            <li>Works with <strong>BigQuery and MySQL</strong> for operational analytics, data warehousing, and performance reporting dashboards</li>
-            <li>Implements <strong>GCP Logging, Alerts, and monitoring policies</strong> to maintain observability and SLA compliance across production systems</li>
+            <li>Own backend features end to end with no supervision: gather requirements, write the technical design, implement, test, deploy, and support in production</li>
+            <li>Build services with <strong>NestJS (TypeScript)</strong> and <strong>Java Spring Boot</strong> in an Nx monorepo, integrated with Commercetools as the commerce platform</li>
+            <li>Design and ship <strong>event-driven workloads on GCP</strong> using Cloud Run, Cloud Functions, Pub/Sub, and BigQuery</li>
+            <li>Built a <strong>Pub/Sub-triggered Cloud Function</strong> that syncs delivery codes into Commercetools customer records, keeping fulfilment data consistent across systems</li>
+            <li>Implemented <strong>Commercetools customer search over GraphQL</strong> against custom fields to support operational lookups</li>
+            <li>Built <strong>courier event comms processing</strong> with timestamp validation so only same-day events trigger customer notifications</li>
+            <li>Authored the <strong>technical design for fulfilment capacity management</strong>, covering a dual capacity model, forecasting, audit trail, and datetime-level granularity for delivery time slots</li>
           </ul>
           <div class="exp-stack">
-            <span class="exp-tag">Java Spring Boot</span>
-            <span class="exp-tag">Node.js</span>
+            <span class="exp-tag">NestJS</span>
             <span class="exp-tag">TypeScript</span>
-            <span class="exp-tag">GCP Pub/Sub</span>
+            <span class="exp-tag">Java Spring Boot</span>
+            <span class="exp-tag">GCP Cloud Run</span>
             <span class="exp-tag">Cloud Functions</span>
+            <span class="exp-tag">Pub/Sub</span>
             <span class="exp-tag">BigQuery</span>
             <span class="exp-tag">Commercetools</span>
-            <span class="exp-tag">Braze</span>
-            <span class="exp-tag">Docker</span>
-            <span class="exp-tag">Redis</span>
+            <span class="exp-tag">GraphQL</span>
+            <span class="exp-tag">Nx monorepo</span>
           </div>
         </div>
       </div>
@@ -301,12 +306,44 @@
   </div>
 </section>
 
+<!-- ─── AI-ASSISTED ENGINEERING ──────────────────────────────────────── -->
+<section id="ai-engineering" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(99, 102, 241, 0.05));">
+  <div class="wrap">
+    <div class="section-label">AI-Powered Development</div>
+    <h2>AI-Assisted Engineering</h2>
+    <p class="section-desc">Leveraging AI tooling to accelerate delivery and maintain consistency across codebases.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card fade-up">
+        <div class="skill-icon">🤖</div>
+        <h4>AI Coding Agents</h4>
+        <p style="margin-top: 8px; color: var(--muted); font-size: 0.95rem;">Use AI coding agents as part of daily delivery, with custom agents and project-level conventions so output matches each codebase's standards.</p>
+      </div>
+      <div class="skill-card fade-up" style="transition-delay:0.05s">
+        <div class="skill-icon">📚</div>
+        <h4>Reusable Skills</h4>
+        <p style="margin-top: 8px; color: var(--muted); font-size: 0.95rem;">Author reusable Skills for recurring workflows across my stacks (backend services, Next.js + Supabase, React Native/Expo), so the same patterns and standards are applied consistently.</p>
+      </div>
+      <div class="skill-card fade-up" style="transition-delay:0.1s">
+        <div class="skill-icon">🔌</div>
+        <h4>MCP Server Development</h4>
+        <p style="margin-top: 8px; color: var(--muted); font-size: 0.95rem;">Built a custom MCP (Model Context Protocol) server to expose project context and tooling to AI agents.</p>
+      </div>
+      <div class="skill-card fade-up" style="transition-delay:0.15s">
+        <div class="skill-icon">🧪</div>
+        <h4>LLM Integration & Testing</h4>
+        <p style="margin-top: 8px; color: var(--muted); font-size: 0.95rem;">Integrate LLM APIs into applications, and use AI for test generation, refactoring, and reviewing technical designs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── PROJECTS ──────────────────────────────────────────────────────── -->
 <section id="projects">
   <div class="wrap">
     <div class="section-label">Side Work &amp; Personal Projects</div>
     <h2>What I Build on My Own</h2>
-    <p class="section-desc">Beyond my day job, I build consumer products — full-stack, shipped, and monetized.</p>
+    <p class="section-desc">Indie developer shipping mobile and web products for the Philippine market: Expo/React Native, NestJS on Cloud Run, PostgreSQL/Supabase, with GCash and PayMongo payment rails.</p>
 
     <div class="projects-grid">
 
@@ -397,6 +434,20 @@
           <span class="proj-tag">Cheerio</span><span class="proj-tag">Puppeteer</span>
           <span class="proj-tag">Gemini Flash</span><span class="proj-tag">Gmail API</span>
           <span class="proj-tag">Supabase</span><span class="proj-tag">Cloud Scheduler</span>
+        </div>
+      </div>
+
+      <!-- Dental Clinic Migration -->
+      <div class="project-card fade-up" style="transition-delay:0.15s">
+        <div class="proj-badge badge-complete">✅ Completed</div>
+        <h3>Dental Clinic Migration Project</h3>
+        <p class="proj-tagline">Freelance Cloud Migration Engagement</p>
+        <p>Freelance engagement migrating a dental clinic application from AWS EC2/MongoDB to Supabase, Vercel, and React. Planned and executed the phased migration strategy, modernized the tech stack, and improved performance and maintainability.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">AWS EC2</span><span class="proj-tag">MongoDB</span>
+          <span class="proj-tag">Supabase</span><span class="proj-tag">Vercel</span>
+          <span class="proj-tag">React</span><span class="proj-tag">PostgreSQL</span>
+          <span class="proj-tag">Migration Planning</span>
         </div>
       </div>
 
