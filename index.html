@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Melvin Gungog — Backend Engineer</title>
+<title>Melvin Gungog — Senior Full-Stack Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
@@ -18,6 +19,7 @@
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">M<span>.</span>Gungog</a>
     <ul class="nav-links">
+      <li><a href="#how">How I Ship</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -29,30 +31,40 @@
 
 <!-- ─── HERO ────────────────────────────────────────────────────────── -->
 <section id="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-left">
         <div class="hero-badge"><span class="dot"></span> Open to Relocation</div>
         <h1>
-          Backend Engineer
+          Senior <span class="nowrap">Full-Stack</span> Engineer
           <span class="accent-line">who ships real systems.</span>
         </h1>
+        <div class="hero-typed" aria-label="Builds React interfaces, mobile apps, NestJS and Spring APIs, event pipelines and database schemas">
+          <span class="prompt">$ ship --layer</span> <span id="typed" class="typed"></span><span class="caret"></span>
+        </div>
         <p class="hero-role">
-          9+ years building <strong>cloud-native microservices</strong> at scale —<br/>
-          most recently at Pet Circle, Australia's leading pet e-commerce platform.
+          10+ years building <strong>end-to-end products</strong> — React &amp; React Native front ends on
+          <strong>cloud-native backends</strong>. Most recently at Pet Circle, Australia's leading pet e-commerce platform.
         </p>
         <p class="hero-desc">
-          Strong in event-driven architecture on Google Cloud, NestJS/Node.js and Java Spring Boot,
-          Commercetools integrations, and database design and optimisation. Takes projects end to end
-          — requirements, technical design, implementation, testing, release, and production support —
-          with no day-to-day supervision. Actively builds AI into the delivery workflow: coding agents,
-          reusable Skills, and a custom MCP server.
+          Deep in event-driven architecture on Google Cloud, NestJS/Node.js and Java Spring Boot, and
+          database design — and just as comfortable shipping the UI on top of it with React, Next.js and Expo.
+          Takes projects end to end — requirements, technical design, implementation, testing, release, and
+          production support. Actively builds AI into the delivery workflow: coding agents, reusable Skills,
+          and a custom MCP server.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn-primary">View My Work ↓</a>
-          <a href="Melvin Gungog Resume.docx.pdf" class="btn-ghost" download>Download CV</a>
+          <a href="Melvin_Gungog_CV.pdf" class="btn-ghost" download>Download CV</a>
         </div>
-        <p style="font-size:0.8rem; color:var(--muted); margin-bottom:12px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600;">Actively targeting</p>
+        <div class="hero-stats">
+          <div><span class="stat-num" data-count="10">0</span><span class="plus">+</span><span class="stat-label">Years shipping</span></div>
+          <div><span class="stat-num" data-count="4">0</span><span class="stat-label">Companies &amp; clients</span></div>
+          <div><span class="stat-num" data-count="5">0</span><span class="plus">+</span><span class="stat-label">Production apps</span></div>
+          <div><span class="stat-num" data-count="3">0</span><span class="stat-label">Layers: UI · API · Data</span></div>
+        </div>
+        <p class="targeting-label">Actively targeting</p>
         <div class="hero-flags">
           <span class="flag-chip"><span>🇸🇬</span> Singapore</span>
           <span class="flag-chip"><span>🇨🇦</span> Canada</span>
@@ -61,36 +73,75 @@
         </div>
       </div>
 
-      <div class="hero-card fade-up">
-        <div class="hero-avatar">MG</div>
-        <h3>Melvin U. Gungog</h3>
-        <p class="subtitle">Backend Engineer · Cebu, Philippines 🇵🇭</p>
-        <div class="stat-grid">
-          <div class="stat">
-            <div class="stat-num">9+</div>
-            <div class="stat-label">Years of<br/>Experience</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">4</div>
-            <div class="stat-label">Companies<br/>& Clients</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">5+</div>
-            <div class="stat-label">Production<br/>Apps Built</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">🌏</div>
-            <div class="stat-label">Open to<br/>Relocation</div>
+      <!-- Live code window: types frontend → backend → database -->
+      <div class="dev-window" aria-label="Code samples across the stack">
+        <div class="dw-bar">
+          <span class="dw-dots"><i></i><i></i><i></i></span>
+          <div class="dw-tabs" role="tablist">
+            <button class="dw-tab active" data-i="0" role="tab"><span class="lang l-tsx">TSX</span>OrderCard.tsx</button>
+            <button class="dw-tab" data-i="1" role="tab"><span class="lang l-ts">TS</span>orders.controller.ts</button>
+            <button class="dw-tab" data-i="2" role="tab"><span class="lang l-sql">SQL</span>schema.sql</button>
           </div>
         </div>
-        <div class="stack-chips">
-          <span class="chip">Java Spring Boot</span>
-          <span class="chip">Node.js</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">GCP</span>
-          <span class="chip">Pub/Sub</span>
-          <span class="chip">React Native</span>
+        <div class="dw-layers">
+          <span class="dw-layer active" data-i="0">Frontend</span>
+          <span class="dw-layer" data-i="1">Backend</span>
+          <span class="dw-layer" data-i="2">Database</span>
         </div>
+        <pre class="dw-code"><code id="dw-code"></code></pre>
+        <div class="dw-status"><span class="dw-led"></span><span id="dw-status">compiling…</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW I SHIP (animated request flow) ───────────────────────────── -->
+<section id="how">
+  <div class="wrap">
+    <div class="section-label">Full Stack, End to End</div>
+    <h2>One request, every layer.</h2>
+    <p class="section-desc">Follow a checkout through the kind of system I build day to day. It checks courier and warehouse capacity and non-working days to give an accurate delivery promise, then places the order through the event bus and down to the database.</p>
+
+    <div class="flow fade-up" id="flow">
+      <div class="flow-nodes" id="flow-nodes">
+        <div class="flow-node" data-node="ui">
+          <div class="fn-icon">🖥️</div>
+          <div class="fn-title">Client</div>
+          <div class="fn-sub">React · Next.js · React Native</div>
+        </div>
+        <div class="flow-link"><span></span></div>
+        <div class="flow-node" data-node="api">
+          <div class="fn-icon">⚙️</div>
+          <div class="fn-title">API</div>
+          <div class="fn-sub">NestJS · Spring Boot · GraphQL</div>
+        </div>
+        <div class="flow-link"><span></span></div>
+        <div class="flow-node" data-node="events">
+          <div class="fn-icon">📡</div>
+          <div class="fn-title">Events</div>
+          <div class="fn-sub">Pub/Sub · Cloud Functions</div>
+        </div>
+        <div class="flow-link"><span></span></div>
+        <div class="flow-node" data-node="data">
+          <div class="fn-icon">🗄️</div>
+          <div class="fn-title">Data</div>
+          <div class="fn-sub">PostgreSQL · BigQuery · Redis</div>
+        </div>
+        <div class="packet" id="packet"></div>
+      </div>
+
+      <div class="flow-cloud">
+        <span class="fc-label">☁️ Runs on</span>
+        <span>Cloud Run</span><span>Docker</span><span>GitHub Actions CI/CD</span><span>Supabase</span>
+        <span class="fc-deploy"><span class="fc-bar"><i id="deploy-bar"></i></span><span id="deploy-text">deploying…</span></span>
+      </div>
+
+      <div class="flow-console">
+        <div class="fcon-head">
+          <span>request.log</span>
+          <button class="flow-btn" id="flow-btn">▶ Send another order</button>
+        </div>
+        <div class="fcon-body" id="flow-log" aria-live="polite"></div>
       </div>
     </div>
   </div>
@@ -101,7 +152,7 @@
   <div class="wrap">
     <div class="section-label">Technical Expertise</div>
     <h2>Stack &amp; Skills</h2>
-    <p class="section-desc">Built over 9 years across enterprise clients, Australian e-commerce, and self-funded side products.</p>
+    <p class="section-desc">Built over 10 years across enterprise clients, Australian e-commerce, and self-funded side products.</p>
 
     <div class="skills-grid">
       <div class="skill-card fade-up">
@@ -175,8 +226,11 @@
         <div class="skill-icon">🤖</div>
         <h4>AI &amp; Emerging Tech</h4>
         <div class="skill-tags">
+          <span class="skill-tag">Claude Code</span>
+          <span class="skill-tag">Cursor</span>
           <span class="skill-tag">Anthropic Claude API</span>
           <span class="skill-tag">Gemini API</span>
+          <span class="skill-tag">MCP Servers</span>
           <span class="skill-tag">ElevenLabs TTS</span>
           <span class="skill-tag">Remotion</span>
           <span class="skill-tag">Supabase Edge Functions</span>
@@ -191,38 +245,86 @@
   <div class="wrap">
     <div class="section-label">Work History</div>
     <h2>Experience</h2>
-    <p class="section-desc">9+ years across e-commerce logistics, enterprise software, US SaaS integrations, and retail systems.</p>
+    <p class="section-desc">10+ years across e-commerce logistics, enterprise software, US SaaS integrations, and retail systems.</p>
 
     <div class="timeline">
 
       <!-- Pet Circle -->
-      <div class="exp-item fade-up">
+      <div class="exp-item current fade-up">
         <div class="exp-header">
           <div class="exp-title">Backend Engineer</div>
           <div class="exp-date">Jun 2022 – Oct 2026 · 4 yrs 4 mos</div>
         </div>
-        <div class="exp-company">Pet Circle — Australian e-commerce company</div>
-        <div class="exp-location">📍 Remote from Cebu, Philippines</div>
+        <div class="exp-company">Pet Circle — Australian e-commerce: pet food, supplies, health &amp; insurance</div>
+        <div class="exp-location">📍 Remote from Cebu, Philippines · Capacity team</div>
         <div class="exp-body">
+          <p class="exp-intro">
+            On the <strong>Capacity team</strong>, which owns the <strong>expected delivery range shown at checkout</strong> and the
+            warehouse systems behind it: order lifecycle, warehouse capacity, courier, stock and logistics, all the way to delivery.
+          </p>
           <ul>
-            <li>Own backend features end to end with no supervision: gather requirements, write the technical design, implement, test, deploy, and support in production</li>
-            <li>Build services with <strong>NestJS (TypeScript)</strong> and <strong>Java Spring Boot</strong> in an Nx monorepo, integrated with Commercetools as the commerce platform</li>
-            <li>Design and ship <strong>event-driven workloads on GCP</strong> using Cloud Run, Cloud Functions, Pub/Sub, and BigQuery</li>
-            <li>Built a <strong>Pub/Sub-triggered Cloud Function</strong> that syncs delivery codes into Commercetools customer records, keeping fulfilment data consistent across systems</li>
-            <li>Implemented <strong>Commercetools customer search over GraphQL</strong> against custom fields to support operational lookups</li>
-            <li>Built <strong>courier event comms processing</strong> with timestamp validation so only same-day events trigger customer notifications</li>
-            <li>Authored the <strong>technical design for fulfilment capacity management</strong>, covering a dual capacity model, forecasting, audit trail, and datetime-level granularity for delivery time slots</li>
+            <li>Own features end to end with no supervision: requirements, technical design, implementation, testing, deployment, and production support</li>
+            <li>Maintain and extend <strong>Spring Boot and RESTEasy (JAX-RS) microservices</strong> on <strong>Java 6, 8, and 11</strong>, including JSF-based apps, integrated with <strong>Commercetools</strong></li>
+            <li>Work across the <strong>checkout</strong>: <strong>Spring Boot APIs</strong> with a <strong>React</strong> UI. When an API contract changes, I update both the existing APIs and the UI to match</li>
+            <li>Build on <strong>ATLAS</strong>, the internal warehouse app, on a mixed stack: a <strong>Next.js</strong> front end, <strong>Next.js</strong> for new APIs, and <strong>Spring Boot</strong> for existing ones</li>
+            <li>Design and ship <strong>event-driven workloads on GCP</strong>: Cloud Run functions in <strong>NestJS</strong>, Pub/Sub, and BigQuery</li>
           </ul>
+
+          <div class="exp-sub">Systems I designed &amp; led</div>
+          <div class="exp-projects">
+            <div class="exp-proj exp-proj-wide">
+              <div class="ep-name">Fulfilment Capacity Redesign</div>
+              <p>Capacity used to be checked only against <strong>courier capacity per day</strong>. I redesigned it to also check
+              <strong>warehouse-level daily capacity</strong> and whether the warehouse is working that day, covering
+              <strong>public holidays, recurring non-working days, and ad hoc closures</strong>. The result is a delivery promise at checkout
+              that is close to 100% accurate. I wrote the technical design: a dual capacity model, forecasting, an audit trail, and datetime-level granularity for delivery time slots.</p>
+            </div>
+            <div class="exp-proj exp-proj-wide">
+              <div class="ep-name">ATLAS — Fulfilment Capacity page</div>
+              <p>Proposed, designed, and added the Fulfilment Capacity page to <strong>ATLAS</strong>, the internal warehouse app
+              (<strong>Next.js</strong> front end, with <strong>Next.js</strong> and <strong>Spring Boot</strong> APIs). Warehouses use it to <strong>add, edit, and remove capacity</strong>
+              for a date range or a specific date, and to manage public holidays, recurring, and ad hoc non-working days. It is the source of truth for the new capacity check.</p>
+              <div class="ep-flow"><span>Next.js UI</span><i>→</i><span>Next.js API (new)</span><i>+</i><span>Spring Boot API (existing)</span><i>→</i><span>capacity check at checkout</span></div>
+            </div>
+            <div class="exp-proj">
+              <div class="ep-name"><code>courier-event-comms</code></div>
+              <p>Event-driven <strong>Cloud Run function in NestJS</strong> that subscribes to courier events. For same-day <strong>on-board events</strong> with an orderId and customerId,
+              it fetches the order details from the order API, transforms them, and publishes to a topic that <strong>Braze</strong> listens to. Braze then notifies the customer by SMS and email.</p>
+              <div class="ep-flow"><span>Pub/Sub</span><i>→</i><span>NestJS fn</span><i>→</i><span>Order API</span><i>→</i><span>Pub/Sub</span><i>→</i><span>Braze</span></div>
+            </div>
+            <div class="exp-proj">
+              <div class="ep-name"><code>delivery-code-update</code></div>
+              <p><strong>Cloud Run function in NestJS</strong> that keeps delivery codes in sync between <strong>Minpin</strong> and <strong>Commercetools</strong>.
+              Minpin is the legacy JSP/JSF warehouse app being gradually migrated to ATLAS. It publishes a message whenever a delivery code changes, and the function
+              updates Commercetools when needed. Delivery codes drive both the <strong>delivery promise</strong> and <strong>special discounts</strong>, so both stay accurate.</p>
+              <div class="ep-flow"><span>Minpin</span><i>→</i><span>Pub/Sub</span><i>→</i><span>NestJS fn</span><i>→</i><span>Commercetools</span></div>
+            </div>
+            <div class="exp-proj exp-proj-wide">
+              <div class="ep-name">Delivery Feedback MCP</div>
+              <p>MCP server called by the <strong>Gladly AI</strong> customer-service agent. It captures non-serious delivery feedback
+              for orders dispatched and delivered within the last 30 days and posts it to <strong>Nash</strong>, the courier platform, to review
+              delivery and driver performance. It also publishes each record to a <strong>Pub/Sub topic with a BigQuery subscription</strong>,
+              so CX moved from tracking feedback in spreadsheets to querying it in BigQuery for metrics and analytics.</p>
+            </div>
+          </div>
+
           <div class="exp-stack">
+            <span class="exp-tag">Java 6 / 8 / 11</span>
+            <span class="exp-tag">Spring Boot</span>
+            <span class="exp-tag">RESTEasy (JAX-RS)</span>
+            <span class="exp-tag">React</span>
+            <span class="exp-tag">Next.js</span>
             <span class="exp-tag">NestJS</span>
             <span class="exp-tag">TypeScript</span>
-            <span class="exp-tag">Java Spring Boot</span>
-            <span class="exp-tag">GCP Cloud Run</span>
-            <span class="exp-tag">Cloud Functions</span>
+            <span class="exp-tag">Cloud Run functions</span>
             <span class="exp-tag">Pub/Sub</span>
             <span class="exp-tag">BigQuery</span>
             <span class="exp-tag">Commercetools</span>
             <span class="exp-tag">GraphQL</span>
+            <span class="exp-tag">MCP</span>
+            <span class="exp-tag">Braze</span>
+            <span class="exp-tag">Gladly AI</span>
+            <span class="exp-tag">Nash API</span>
             <span class="exp-tag">Nx monorepo</span>
           </div>
         </div>
@@ -232,21 +334,22 @@
       <div class="exp-item fade-up">
         <div class="exp-header">
           <div class="exp-title">Full Stack Developer</div>
-          <div class="exp-date">Feb 2021 – Apr 2022 · 1 yr 2 mos</div>
+          <div class="exp-date">Feb 2021 – May 2022 · 1 yr 3 mos</div>
         </div>
-        <div class="exp-company">Fujitsu Global IT Services &amp; Solutions</div>
-        <div class="exp-location">📍 Cebu City, Philippines (Japanese Enterprise Clients)</div>
+        <div class="exp-company">Fujitsu Global IT Services &amp; Solutions — KOPT team</div>
+        <div class="exp-location">📍 Cebu City, Philippines (Japanese enterprise client)</div>
         <div class="exp-body">
           <ul>
-            <li>Built enterprise web applications for Japanese clients using <strong>Java (x33 Framework)</strong>, JSP, and OracleSQL</li>
-            <li>Delivered in a structured <strong>Waterfall environment</strong> with strict documentation standards — developed strong habits for specification compliance and formal test coverage</li>
-            <li>Wrote unit tests using <strong>JUnit4</strong>, performed DB query optimization, and collaborated in cross-cultural engineering teams</li>
+            <li>Maintained the application of a <strong>Japanese electric power company</strong> as part of the KOPT team</li>
+            <li>Translated <strong>Japanese business requirements into technical specifications</strong>, then delivered quality features and bug fixes from them</li>
+            <li>Built on <strong>Java 1.6</strong> and Fujitsu's in-house <strong>x33 framework</strong> (JSP, OracleSQL)</li>
+            <li>Owned the cycle from requirements through implementation and testing, then handed off to the Japan team for review and deployment, in a <strong>Waterfall process with strict documentation</strong></li>
           </ul>
           <div class="exp-stack">
             <span class="exp-tag">Java 1.6</span>
             <span class="exp-tag">x33 Framework</span>
-            <span class="exp-tag">OracleSQL</span>
             <span class="exp-tag">JSP</span>
+            <span class="exp-tag">OracleSQL</span>
             <span class="exp-tag">JUnit4</span>
             <span class="exp-tag">SVN</span>
           </div>
@@ -256,24 +359,38 @@
       <!-- Cazoomi -->
       <div class="exp-item fade-up">
         <div class="exp-header">
-          <div class="exp-title">Full Stack Developer</div>
+          <div class="exp-title">Full Stack Web Developer</div>
           <div class="exp-date">Jan 2018 – Dec 2020 · 3 yrs</div>
         </div>
         <div class="exp-company">Cazoomi — San Francisco, California (Remote)</div>
-        <div class="exp-location">📍 Philippines (US-based client, international remote work)</div>
+        <div class="exp-location">📍 Philippines (US-based SaaS company, international remote work)</div>
         <div class="exp-body">
+          <p class="exp-intro">
+            Cazoomi's product, <strong>SyncApps</strong>, is SaaS integration middleware that syncs <strong>CRMs</strong> (Salesforce, NetSuite, Zoho CRM,
+            Microsoft Dynamics, and more) with <strong>email service providers</strong> (Mailchimp, Constant Contact, HubSpot, ActiveCampaign, and more).
+            Many CRMs can't email customers for campaigns or promotions on their own, and Cazoomi closes that gap.
+          </p>
           <ul>
-            <li>Built and maintained <strong>bi-directional CRM↔ESP sync pipelines</strong> connecting Salesforce, HubSpot, Zoho CRM, and Microsoft Dynamics 365 with Mailchimp, Constant Contact, and ActiveCampaign</li>
-            <li>Developed backend data sync services in <strong>Java (Play Framework)</strong> with ArangoDB and Memcached — handling high-frequency record synchronization with conflict resolution logic</li>
-            <li>Provided <strong>Tier 3 technical support</strong> — diagnosing and resolving complex integration failures across customer environments, requiring deep knowledge of third-party APIs</li>
+            <li>Built the <strong>CRM ↔ ESP integrations</strong> from client requirements in <strong>Java 1.6 on the Play Framework</strong>, working against many <strong>third-party APIs</strong></li>
+            <li>Handled <strong>client customization and feature requests</strong> according to each client's subscription level, which made integrations smooth and fast on both ends</li>
+            <li>Stored sign-up and subscription data as documents in <strong>ArangoDB</strong>, worked with <strong>PostgreSQL</strong> for queries and data modelling, and cached frequently reused objects in <strong>Memcached</strong> using a <strong>cache-aside pattern</strong> with TTL expiry and invalidation on update, which cut repeated database reads without serving stale data</li>
+            <li>Built the web app front end with <strong>HTML, CSS, JavaScript, and Bootstrap</strong></li>
+            <li>Diagnosed and resolved integration failures across customer environments, which required deep knowledge of third-party APIs</li>
           </ul>
           <div class="exp-stack">
-            <span class="exp-tag">Java Play Framework</span>
+            <span class="exp-tag">Java 1.6</span>
+            <span class="exp-tag">Play Framework</span>
             <span class="exp-tag">ArangoDB</span>
+            <span class="exp-tag">PostgreSQL</span>
             <span class="exp-tag">Memcached</span>
+            <span class="exp-tag">HTML / CSS / JS</span>
+            <span class="exp-tag">Bootstrap</span>
             <span class="exp-tag">Salesforce API</span>
-            <span class="exp-tag">HubSpot API</span>
+            <span class="exp-tag">NetSuite API</span>
+            <span class="exp-tag">Dynamics 365 API</span>
             <span class="exp-tag">Mailchimp API</span>
+            <span class="exp-tag">HubSpot API</span>
+            <span class="exp-tag">ActiveCampaign API</span>
           </div>
         </div>
       </div>
@@ -288,16 +405,19 @@
         <div class="exp-location">📍 Mandaue City, Philippines</div>
         <div class="exp-body">
           <ul>
-            <li>Built <strong>desktop automation tools</strong> in Java and PHP — reducing manual processing time for Oracle Retail operations across store branches</li>
-            <li>Managed and supported <strong>Oracle Retail applications</strong> — POS, ReSA, RMS, and EBS Ledger — providing Tier 2 support and resolving escalated system issues</li>
-            <li>Foundation role that established strong habits in <strong>SQL query performance</strong>, system debugging, and cross-functional stakeholder communication</li>
+            <li>Retrieved <strong>sales reports for each store</strong> by querying store databases directly with SQL scripts</li>
+            <li>Wrote the <strong>procedural queries behind the materialized views</strong> used by the Jewelry department</li>
+            <li>Built <strong>POS utilities that automatically fix stuck data</strong>. I identified the recurring problem, designed the solution myself, proposed it to my tech leads, then implemented it and took it through to production</li>
+            <li>Built <strong>Java 1.5 desktop apps</strong>, <strong>PHP web apps</strong>, and <strong>Bash and Korn shell scripts</strong> to automate store operations</li>
           </ul>
           <div class="exp-stack">
-            <span class="exp-tag">Java 1.5/1.6</span>
-            <span class="exp-tag">PHP CodeIgniter</span>
-            <span class="exp-tag">OracleSQL</span>
+            <span class="exp-tag">Java 1.5</span>
+            <span class="exp-tag">PHP</span>
+            <span class="exp-tag">SQL / PL-SQL</span>
+            <span class="exp-tag">Materialized Views</span>
+            <span class="exp-tag">Bash</span>
+            <span class="exp-tag">Korn Shell</span>
             <span class="exp-tag">Oracle Retail POS</span>
-            <span class="exp-tag">EBS Ledger</span>
           </div>
         </div>
       </div>
@@ -307,32 +427,52 @@
 </section>
 
 <!-- ─── AI-ASSISTED ENGINEERING ──────────────────────────────────────── -->
-<section id="ai-engineering" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(99, 102, 241, 0.05));">
+<section id="ai-engineering">
   <div class="wrap">
     <div class="section-label">AI-Powered Development</div>
-    <h2>AI-Assisted Engineering</h2>
-    <p class="section-desc">Leveraging AI tooling to accelerate delivery and maintain consistency across codebases.</p>
+    <h2>AI is my assistant. I own the code.</h2>
+    <p class="section-desc">I use AI every day to move faster, set up per project with that codebase's conventions and context. Every result is verified, grounded in the business rules, and owned by me.</p>
 
-    <div class="skills-grid">
-      <div class="skill-card fade-up">
-        <div class="skill-icon">🤖</div>
-        <h4>AI Coding Agents</h4>
-        <p style="margin-top: 8px; color: var(--muted); font-size: 0.95rem;">Use AI coding agents as part of daily delivery, with custom agents and project-level conventions so output matches each codebase's standards.</p>
+    <div class="ai-tools fade-up">
+      <div class="ai-tool"><span class="ai-tool-name">Claude Code</span><span class="ai-tool-use">Coding agent</span></div>
+      <div class="ai-tool"><span class="ai-tool-name">Cursor</span><span class="ai-tool-use">AI editor</span></div>
+      <div class="ai-tool"><span class="ai-tool-name">Gemini</span><span class="ai-tool-use">LLM API</span></div>
+      <div class="ai-tool"><span class="ai-tool-name">ElevenLabs</span><span class="ai-tool-use">Voice / TTS</span></div>
+      <div class="ai-tool"><span class="ai-tool-name">Remotion</span><span class="ai-tool-use">Video as React code</span></div>
+    </div>
+
+    <div class="ai-grid">
+      <div class="ai-col fade-up">
+        <h3 class="ai-h">How I use it</h3>
+        <ul class="ai-uses">
+          <li><span>⚡</span><div><strong>Boilerplate</strong> — scaffolding modules, DTOs, and tests so I spend my time on the logic</div></li>
+          <li><span>🐞</span><div><strong>Debugging</strong> — tracing errors and narrowing down root causes faster</div></li>
+          <li><span>🧪</span><div><strong>Testing</strong> — generating test cases and edge cases to review and extend</div></li>
+          <li><span>🔍</span><div><strong>Review &amp; analysis</strong> — reviewing code and technical designs, and analysing unfamiliar code</div></li>
+          <li><span>🧭</span><div><strong>Set up per project</strong> — each project gets its own conventions, context, reusable Skills, and a custom MCP server where it helps</div></li>
+        </ul>
       </div>
-      <div class="skill-card fade-up" style="transition-delay:0.05s">
-        <div class="skill-icon">📚</div>
-        <h4>Reusable Skills</h4>
-        <p style="margin-top: 8px; color: var(--muted); font-size: 0.95rem;">Author reusable Skills for recurring workflows across my stacks (backend services, Next.js + Supabase, React Native/Expo), so the same patterns and standards are applied consistently.</p>
-      </div>
-      <div class="skill-card fade-up" style="transition-delay:0.1s">
-        <div class="skill-icon">🔌</div>
-        <h4>MCP Server Development</h4>
-        <p style="margin-top: 8px; color: var(--muted); font-size: 0.95rem;">Built a custom MCP (Model Context Protocol) server to expose project context and tooling to AI agents.</p>
-      </div>
-      <div class="skill-card fade-up" style="transition-delay:0.15s">
-        <div class="skill-icon">🧪</div>
-        <h4>LLM Integration & Testing</h4>
-        <p style="margin-top: 8px; color: var(--muted); font-size: 0.95rem;">Integrate LLM APIs into applications, and use AI for test generation, refactoring, and reviewing technical designs.</p>
+
+      <div class="ai-col fade-up" style="transition-delay:0.08s">
+        <h3 class="ai-h">My rules for working with AI</h3>
+        <div class="ai-rules">
+          <div class="ai-rule">
+            <div class="ai-rule-title">✅ Verify everything</div>
+            <p>When AI isn't sure, it guesses. Integrating an internal system with <strong>Commercetools</strong>, it invented field and object names that don't exist. I check every output against the real schema and docs.</p>
+            <div class="ai-diff" aria-label="Example of an AI-invented field corrected after verification">
+              <div class="d-del">- customer.custom.fields.<b>deliveryZoneCode</b>  <em>// AI guess: field not in type</em></div>
+              <div class="d-add">+ customer.custom.fields.<b>deliveryCode</b>      <em>// verified against schema</em></div>
+            </div>
+          </div>
+          <div class="ai-rule">
+            <div class="ai-rule-title">🔒 No secrets, ever</div>
+            <p>Credentials, API keys, and other secrets never go into a prompt or an AI tool's context.</p>
+          </div>
+          <div class="ai-rule">
+            <div class="ai-rule-title">🧑‍💻 I own the implementation</div>
+            <p>AI assists; I'm accountable. Every change is driven by the business rules and requirements, not by what the model suggests.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -343,114 +483,75 @@
   <div class="wrap">
     <div class="section-label">Side Work &amp; Personal Projects</div>
     <h2>What I Build on My Own</h2>
-    <p class="section-desc">Indie developer shipping mobile and web products for the Philippine market: Expo/React Native, NestJS on Cloud Run, PostgreSQL/Supabase, with GCash and PayMongo payment rails.</p>
+    <p class="section-desc">Products I build end to end outside my day job, mostly for the Philippine market: mobile and web front ends, backends, and AI features.</p>
 
     <div class="projects-grid">
 
-      <!-- Serenity — Featured -->
-      <div class="project-card featured fade-up">
-        <div>
-          <div class="proj-badge badge-featured">⭐ Featured</div>
-          <h3>Serenity — Mental Wellness App</h3>
-          <p class="proj-tagline">AI-powered mobile app for mental health support</p>
-          <p>A full-stack consumer mobile app built from zero with 37+ screens including mood tracking, AI-powered journaling insights via the Anthropic Claude API, guided breathing exercises, habit tracking, and therapeutic games. Includes a complete Supabase backend with Google OAuth, a premium subscription tier with PayPal, and a Next.js admin dashboard for monitoring user analytics and revenue.</p>
-          <div class="proj-metrics">
-            <div class="metric"><div class="metric-num">37+</div><div class="metric-label">Screens</div></div>
-            <div class="metric"><div class="metric-num">11</div><div class="metric-label">Features</div></div>
-            <div class="metric"><div class="metric-num">3</div><div class="metric-label">AI Integrations</div></div>
-          </div>
-          <div class="proj-tags">
-            <span class="proj-tag">React Native</span><span class="proj-tag">Expo</span>
-            <span class="proj-tag">TypeScript</span><span class="proj-tag">Supabase</span>
-            <span class="proj-tag">Anthropic SDK</span><span class="proj-tag">Next.js</span>
-            <span class="proj-tag">PayPal</span><span class="proj-tag">Tailwind CSS</span>
-          </div>
-          <div class="proj-links">
-            <a href="https://github.com/iammelvz/serenity-mobile" class="proj-link" target="_blank">GitHub →</a>
-          </div>
+      <div class="project-card fade-up">
+        <div class="proj-badge badge-featured">⭐ Featured</div>
+        <h3>Serenity</h3>
+        <p class="proj-tagline">Mental wellness app</p>
+        <p>Mood tracking, AI journaling insights with the Claude API, guided breathing, and habit tracking, on a Supabase backend with a Next.js admin dashboard.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">React Native</span><span class="proj-tag">Expo</span>
+          <span class="proj-tag">Supabase</span><span class="proj-tag">Claude API</span><span class="proj-tag">Next.js</span>
         </div>
-        <div class="featured-visual">
-          <div class="screen-mock">
-            <div class="screen-header">📊 Mood Analytics</div>
-            <div class="screen-row"><span class="label">Today's mood</span><span class="value">😊 Good</span></div>
-            <div class="screen-row"><span class="label">7-day streak</span><span class="value">🔥 Active</span></div>
-            <div class="screen-row"><span class="label">Breathing sessions</span><span class="value">12 this week</span></div>
-            <div class="bar"><div class="bar-fill" style="width:72%"></div></div>
-          </div>
-          <div class="screen-mock">
-            <div class="screen-header">🤖 AI Journal Insight</div>
-            <div class="screen-row"><span class="label">Sentiment</span><span class="value" style="color:var(--green)">Positive ↑</span></div>
-            <div class="screen-row"><span class="label">Keywords</span><span class="value">focus, calm, growth</span></div>
-            <div class="bar"><div class="bar-fill" style="width:85%; background:var(--green)"></div></div>
-          </div>
-          <div class="screen-mock">
-            <div class="screen-header">💰 Admin Dashboard</div>
-            <div class="screen-row"><span class="label">Active subscriptions</span><span class="value">—</span></div>
-            <div class="screen-row"><span class="label">Churn rate</span><span class="value">—</span></div>
-            <div class="screen-row"><span class="label">Avg session</span><span class="value">—</span></div>
-          </div>
+        <div class="proj-links">
+          <a href="https://github.com/iammelvz/serenity-mobile" class="proj-link" target="_blank">GitHub →</a>
         </div>
       </div>
 
-      <!-- Kabisado -->
+      <div class="project-card fade-up" style="transition-delay:0.05s">
+        <div class="proj-badge badge-shipped">🏓 Side Project</div>
+        <h3>Pickle Booking App</h3>
+        <p class="proj-tagline">Court booking for pickleball</p>
+        <p>Lets players find and book pickleball court time slots.</p>
+      </div>
+
+      <div class="project-card fade-up" style="transition-delay:0.1s">
+        <div class="proj-badge badge-shipped">🏓 Side Project</div>
+        <h3>PickleQueue</h3>
+        <p class="proj-tagline">Pickleball matchmaking</p>
+        <p>Queues players during open play and matches them into games.</p>
+      </div>
+
       <div class="project-card fade-up">
         <div class="proj-badge badge-wip">🚧 In Progress</div>
         <h3>Kabisado</h3>
-        <p class="proj-tagline">Civil Service Exam Reviewer for Filipino Professionals</p>
-        <p>Offline-first mobile app targeting the Philippine Civil Service Exam market. Features a gamified quiz engine with subject-based learning paths, daily streaks, progress analytics, and a freemium model with AdMob and GCash payment integration. Designed for low-connectivity environments common in the provinces.</p>
+        <p class="proj-tagline">Civil Service Exam reviewer</p>
+        <p>Offline-first mobile reviewer for the Philippine Civil Service Exam, with gamified quizzes, daily streaks, and progress tracking.</p>
         <div class="proj-tags">
-          <span class="proj-tag">React Native</span><span class="proj-tag">Expo</span>
-          <span class="proj-tag">TypeScript</span><span class="proj-tag">NativeWind</span>
-          <span class="proj-tag">AsyncStorage</span><span class="proj-tag">AdMob</span>
-        </div>
-        <div class="proj-links">
-          <a href="https://github.com/wuweimelvz" class="proj-link" target="_blank">GitHub →</a>
+          <span class="proj-tag">React Native</span><span class="proj-tag">Expo</span><span class="proj-tag">TypeScript</span>
         </div>
       </div>
 
-      <!-- Kiko's World -->
       <div class="project-card fade-up" style="transition-delay:0.05s">
         <div class="proj-badge badge-wip">🚧 In Progress</div>
-        <h3>Kiko's World</h3>
-        <p class="proj-tagline">AI-Automated Educational YouTube Channel for Kids</p>
-        <p>End-to-end AI content pipeline for a children's educational YouTube channel. Automates script generation (Gemini API), voiceover (ElevenLabs), animated video rendering (Remotion + Claude API), and publishing (YouTube API) — targeting 24 episodes over 3 months with minimal human intervention.</p>
+        <h3>Job Scout</h3>
+        <p class="proj-tagline">AI job scraper</p>
+        <p>Chrome extension and backend that scrape job boards and Gmail job alerts, then score each match with Gemini.</p>
         <div class="proj-tags">
-          <span class="proj-tag">Gemini API</span><span class="proj-tag">ElevenLabs</span>
-          <span class="proj-tag">Remotion</span><span class="proj-tag">Claude API</span>
-          <span class="proj-tag">YouTube API</span><span class="proj-tag">Node.js</span>
+          <span class="proj-tag">React</span><span class="proj-tag">NestJS</span>
+          <span class="proj-tag">Cloud Run</span><span class="proj-tag">Gemini</span>
         </div>
       </div>
 
-      <!-- Job Scout -->
       <div class="project-card fade-up" style="transition-delay:0.1s">
         <div class="proj-badge badge-wip">🚧 In Progress</div>
-        <h3>Job Scout</h3>
-        <p class="proj-tagline">AI-Powered Job Application Automation Chrome Extension</p>
-        <p>Chrome extension that automates job hunting by scraping job boards, parsing Gmail job alerts, and using AI to match opportunities. Features intelligent job scoring with Gemini Flash, automated application tracking, and seamless Gmail integration for extracting preferences from job alerts.</p>
+        <h3>Kiko's World</h3>
+        <p class="proj-tagline">AI video pipeline for kids' YouTube</p>
+        <p>Gemini writes the scripts, ElevenLabs voices them, and Remotion renders the animated video.</p>
         <div class="proj-tags">
-          <span class="proj-tag">Plasmo</span><span class="proj-tag">React</span>
-          <span class="proj-tag">TypeScript</span><span class="proj-tag">Tailwind CSS</span>
-          <span class="proj-tag">NestJS</span><span class="proj-tag">Cloud Run</span>
-          <span class="proj-tag">Cheerio</span><span class="proj-tag">Puppeteer</span>
-          <span class="proj-tag">Gemini Flash</span><span class="proj-tag">Gmail API</span>
-          <span class="proj-tag">Supabase</span><span class="proj-tag">Cloud Scheduler</span>
+          <span class="proj-tag">Gemini</span><span class="proj-tag">ElevenLabs</span><span class="proj-tag">Remotion</span>
         </div>
       </div>
 
-      <!-- Dental Clinic Migration -->
-      <div class="project-card fade-up" style="transition-delay:0.15s">
-        <div class="proj-badge badge-complete">✅ Completed</div>
-        <h3>Dental Clinic Migration Project</h3>
-        <p class="proj-tagline">Freelance Cloud Migration Engagement</p>
-        <p>Freelance engagement migrating a dental clinic application from AWS EC2/MongoDB to Supabase, Vercel, and React. Planned and executed the phased migration strategy, modernized the tech stack, and improved performance and maintainability.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">AWS EC2</span><span class="proj-tag">MongoDB</span>
-          <span class="proj-tag">Supabase</span><span class="proj-tag">Vercel</span>
-          <span class="proj-tag">React</span><span class="proj-tag">PostgreSQL</span>
-          <span class="proj-tag">Migration Planning</span>
-        </div>
-      </div>
+    </div>
 
+    <div class="project-card freelance fade-up">
+      <div class="proj-badge badge-complete">✅ Freelance · Completed</div>
+      <h3>Dental Clinic Migration</h3>
+      <p>Planned and executed a phased migration of a dental clinic app from AWS EC2 and MongoDB to Supabase (PostgreSQL), Vercel, and React.</p>
     </div>
   </div>
 </section>
@@ -464,10 +565,9 @@
     <div class="about-grid">
       <div class="about-text fade-up">
         <p>
-          I'm a backend engineer based in <strong>Cebu, Philippines</strong> with 9+ years of experience 
+          I'm a full-stack engineer with deep backend roots, based in <strong>Cebu, Philippines</strong>, with 10+ years of experience 
           across logistics, enterprise, SaaS, and retail. My day job is at <strong>Pet Circle</strong> — 
-          Australia's leading pet e-commerce company — where I work on the fulfillment and 
-          warehouse systems that make sure millions of orders reach customers on time.
+          Australia's leading pet e-commerce company — where I work on the checkout delivery promise and the warehouse capacity systems behind it.
         </p>
         <p>
           Outside of work I build consumer apps from scratch — not as tutorials, but as real 
@@ -521,7 +621,7 @@
           <div class="fact-icon">📈</div>
           <div>
             <div class="fact-title">Next Goal</div>
-            <div class="fact-desc">Senior Backend Engineer role at a product company in SG, CA, or NZ — ideally working on platform-level systems or developer tooling.</div>
+            <div class="fact-desc">Senior Full-Stack or Backend Engineer role at a product company in SG, CA, or NZ — ideally working on platform-level systems or developer tooling.</div>
           </div>
         </div>
       </div>
@@ -551,23 +651,10 @@
 
 <footer>
   <div class="wrap">
-    © 2025 Melvin U. Gungog · Built with care · Cebu, Philippines 🇵🇭
+    © 2026 Melvin U. Gungog · Built with care · Cebu, Philippines 🇵🇭
   </div>
 </footer>
 
-<script>
-// ─── Scroll-triggered fade-in ────────────────────────────────────────
-const observer = new IntersectionObserver(
-  entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } }),
-  { threshold: 0.12 }
-);
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-// ─── Nav shadow on scroll ────────────────────────────────────────────
-window.addEventListener('scroll', () => {
-  document.querySelector('nav').style.boxShadow =
-    window.scrollY > 20 ? '0 4px 32px rgba(0,0,0,0.3)' : 'none';
-});
-</script>
+<script src="script.js"></script>
 </body>
 </html>
