@@ -4,12 +4,22 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Melvin Gungog — Senior Full-Stack Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<meta name="description" content="Senior Full-Stack Engineer with 10+ years shipping React, React Native, NestJS and Spring Boot systems on Google Cloud. Builds and runs indie products and client sites from Cebu, Philippines. Open to relocation."/>
+<meta name="theme-color" content="#0B0F1A"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Melvin Gungog — Senior Full-Stack Engineer"/>
+<meta property="og:description" content="10+ years shipping end-to-end systems: UI, APIs, events and data. Plus live indie products: booking platforms, a septic services CRM, AI agents and exam reviewers."/>
+<meta name="twitter:card" content="summary"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0F1A'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-weight='800' font-size='34' text-anchor='middle' fill='%23E8EDF5'%3EM%3Ctspan fill='%233B7EF6'%3E.%3C/tspan%3E%3C/text%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"><i id="scroll-bar"></i></div>
 
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
@@ -18,17 +28,21 @@
 <nav>
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">M<span>.</span>Gungog</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#how">How I Ship</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#projects">Indie Work</a></li>
       <li><a href="#about">About</a></li>
     </ul>
-    <a href="mailto:wuweimelvz@gmail.com" class="nav-cta">Hire Me →</a>
+    <div class="nav-right">
+      <a href="mailto:wuweimelvz@gmail.com" class="nav-cta">Hire Me →</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </nav>
 
+<main id="main">
 <!-- ─── HERO ────────────────────────────────────────────────────────── -->
 <section id="hero">
   <div class="hero-bg" aria-hidden="true"></div>
@@ -60,9 +74,9 @@
         </div>
         <div class="hero-stats">
           <div><span class="stat-num" data-count="10">0</span><span class="plus">+</span><span class="stat-label">Years shipping</span></div>
-          <div><span class="stat-num" data-count="4">0</span><span class="stat-label">Companies &amp; clients</span></div>
-          <div><span class="stat-num" data-count="5">0</span><span class="plus">+</span><span class="stat-label">Production apps</span></div>
-          <div><span class="stat-num" data-count="3">0</span><span class="stat-label">Layers: UI · API · Data</span></div>
+          <div><span class="stat-num" data-count="4">0</span><span class="stat-label">Companies</span></div>
+          <div><span class="stat-num" data-count="8">0</span><span class="stat-label">Indie products built</span></div>
+          <div><span class="stat-num" data-count="4">0</span><span class="plus">+</span><span class="stat-label">Live with real customers</span></div>
         </div>
         <p class="targeting-label">Actively targeting</p>
         <div class="hero-flags">
@@ -195,6 +209,7 @@
           <span class="skill-tag">MongoDB</span>
           <span class="skill-tag">Redis</span>
           <span class="skill-tag">Supabase</span>
+          <span class="skill-tag">Convex</span>
           <span class="skill-tag">ArangoDB</span>
         </div>
       </div>
@@ -207,6 +222,7 @@
           <span class="skill-tag">React Native</span>
           <span class="skill-tag">Expo</span>
           <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">Zustand</span>
           <span class="skill-tag">Vite</span>
         </div>
       </div>
@@ -220,6 +236,10 @@
           <span class="skill-tag">HubSpot</span>
           <span class="skill-tag">Mailchimp</span>
           <span class="skill-tag">Supabase Auth</span>
+          <span class="skill-tag">GCash / PayMongo</span>
+          <span class="skill-tag">Google Places API</span>
+          <span class="skill-tag">Gmail API</span>
+          <span class="skill-tag">Resend</span>
         </div>
       </div>
       <div class="skill-card fade-up" style="transition-delay:0.25s">
@@ -481,78 +501,206 @@
 <!-- ─── PROJECTS ──────────────────────────────────────────────────────── -->
 <section id="projects">
   <div class="wrap">
-    <div class="section-label">Side Work &amp; Personal Projects</div>
-    <h2>What I Build on My Own</h2>
-    <p class="section-desc">Products I build end to end outside my day job, mostly for the Philippine market: mobile and web front ends, backends, and AI features.</p>
+    <div class="section-label">Indie Products &amp; Client Work</div>
+    <h2>What I build and run on my own</h2>
+    <p class="section-desc">Products I design, build, ship and operate end to end outside my day job, mostly for the Philippine market. Several are live with real customers, and two are paid client builds for local businesses.</p>
+
+    <!-- Lead → live site pipeline -->
+    <div class="pipeline fade-up" aria-label="How Scout Agents feeds the website and CRM builds">
+      <div class="pl-head">
+        <span class="pl-kicker">My indie pipeline</span>
+        <span class="pl-title">From a business with no website to a live site and CRM</span>
+      </div>
+      <ol class="pl-steps">
+        <li><span class="pl-num">01</span><strong>Find</strong><span>Lead Scout agent searches Google Places for service businesses with no website</span></li>
+        <li><span class="pl-num">02</span><strong>Pitch</strong><span>It scores each lead and drafts a personal Taglish offer, which I review and send</span></li>
+        <li><span class="pl-num">03</span><strong>Build</strong><span>One-page site built to get calls, plus a staff CRM on an admin subdomain</span></li>
+        <li><span class="pl-num">04</span><strong>Grow</strong><span>Call-tap tracking, an SEO guides blog, and Google indexing</span></li>
+      </ol>
+    </div>
+
+    <div class="proj-filters" role="toolbar" aria-label="Filter projects">
+      <button class="pf-btn active" data-filter="all" aria-pressed="true">All <span class="pf-count"></span></button>
+      <button class="pf-btn" data-filter="live" aria-pressed="false">Live <span class="pf-count"></span></button>
+      <button class="pf-btn" data-filter="client" aria-pressed="false">Client work <span class="pf-count"></span></button>
+      <button class="pf-btn" data-filter="ai" aria-pressed="false">AI <span class="pf-count"></span></button>
+      <button class="pf-btn" data-filter="wip" aria-pressed="false">In progress <span class="pf-count"></span></button>
+    </div>
 
     <div class="projects-grid">
 
-      <div class="project-card fade-up">
-        <div class="proj-badge badge-featured">⭐ Featured</div>
+      <!-- Septic Tank Website + CRM -->
+      <article class="project-card wide fade-up" data-cat="live client">
+        <div class="pc-main">
+          <div class="proj-badges">
+            <span class="proj-badge badge-live"><i class="live-dot"></i> Live</span>
+            <span class="proj-badge badge-client">Client build ×2</span>
+          </div>
+          <h3>Septic Tank Website + CRM</h3>
+          <p class="proj-tagline">Lead-gen one-pager and staff CRM for septic services companies in Cebu</p>
+          <p>Built for two siphoning companies, Zeneth and Cebu Habwa. The one-page site has one job: get the visitor to call. The CRM behind it runs the business, from first call to paid job.</p>
+          <ul class="proj-points">
+            <li>Every Call, Viber, WhatsApp and Messenger tap is tracked live, with no personal data stored</li>
+            <li>Leads pipeline (New → Contacted → Scheduled → Won/Lost), job scheduling with truck and crew, calendar views</li>
+            <li>Payments, down payments and unpaid tracking, follow-ups with customer feedback, and an activity log</li>
+            <li>Role-aware staff accounts with admin approval, mobile-first admin UI, and an SEO guides blog with a daily publish queue</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="proj-tag">Next.js 16</span><span class="proj-tag">Tailwind 4</span><span class="proj-tag">Convex</span>
+            <span class="proj-tag">Convex Auth</span><span class="proj-tag">Vercel</span><span class="proj-tag">SEO</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://zenethsepticcebu.com" class="proj-link" target="_blank" rel="noopener">Zeneth ↗</a>
+            <a href="https://habwaseptictankcebu.com" class="proj-link" target="_blank" rel="noopener">Cebu Habwa ↗</a>
+          </div>
+        </div>
+        <div class="pc-visual" aria-hidden="true">
+          <div class="mock">
+            <div class="mock-bar"><i></i><i></i><i></i><span>admin · Dashboard</span></div>
+            <div class="mock-stats">
+              <div><b>14</b><span>Call taps today</span></div>
+              <div><b>6</b><span>Open leads</span></div>
+              <div><b>₱48k</b><span>Revenue this month</span></div>
+            </div>
+            <div class="mock-kanban">
+              <div><em>New</em><span></span><span></span></div>
+              <div><em>Contacted</em><span></span></div>
+              <div><em>Scheduled</em><span></span><span></span></div>
+              <div><em>Won</em><span class="won"></span><span class="won"></span><span class="won"></span></div>
+            </div>
+            <div class="mock-job"><span class="dot-g"></span>Siphoning · Lapu-Lapu · Truck 2 <em>Mark done</em></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pickle Open booking platform -->
+      <article class="project-card wide fade-up" data-cat="live client">
+        <div class="pc-main">
+          <div class="proj-badges">
+            <span class="proj-badge badge-live"><i class="live-dot"></i> Live</span>
+            <span class="proj-badge badge-client">Multi-venue</span>
+          </div>
+          <h3>Court Booking Platform</h3>
+          <p class="proj-tagline">Pickaboo and Pickle Zone-J: booking apps for pickleball venues</p>
+          <p>A multi-tenant platform: each venue gets its own branded site and admin, on a subdomain or its own domain, all served from one codebase with a super-admin portal over every client.</p>
+          <ul class="proj-points">
+            <li>Book courts, coaches and events from a live time-slot grid, with promo pricing and event reservations</li>
+            <li>GCash QR payment with receipt upload, plus a payment hold that expires and frees the slot</li>
+            <li>Admin day grid for walk-ins, unpaid and event bookings, with email notifications</li>
+            <li>Open play with RSVP, a host name, and a TV display for the venue</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="proj-tag">Next.js</span><span class="proj-tag">Convex</span><span class="proj-tag">Tailwind</span>
+            <span class="proj-tag">Resend</span><span class="proj-tag">GCash</span><span class="proj-tag">Vercel</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://pickaboocebu.com" class="proj-link" target="_blank" rel="noopener">Pickaboo ↗</a>
+            <a href="https://www.picklezonej.com" class="proj-link" target="_blank" rel="noopener">Pickle Zone-J ↗</a>
+          </div>
+        </div>
+        <div class="pc-visual" aria-hidden="true">
+          <div class="mock">
+            <div class="mock-bar"><i></i><i></i><i></i><span>Book a court · Sat</span></div>
+            <div class="mock-grid">
+              <span class="h"></span><span class="h">Court 1</span><span class="h">Court 2</span><span class="h">Court 3</span>
+              <span class="t">6 PM</span><span class="b">MG</span><span class="f"></span><span class="p">Promo</span>
+              <span class="t">7 PM</span><span class="b">JR</span><span class="b">AL</span><span class="f"></span>
+              <span class="t">8 PM</span><span class="e">For Events</span><span class="e">For Events</span><span class="b">KC</span>
+              <span class="t">9 PM</span><span class="f sel">✓</span><span class="f"></span><span class="f"></span>
+            </div>
+            <div class="mock-job"><span class="dot-g"></span>Hold expires in 14:52 <em>Upload receipt</em></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PickleQueueUp -->
+      <article class="project-card fade-up" data-cat="live">
+        <div class="proj-badges"><span class="proj-badge badge-live"><i class="live-dot"></i> Live</span></div>
+        <h3>PickleQueueUp</h3>
+        <p class="proj-tagline">Open-play queue and matchmaking</p>
+        <p>Players check in on their phones and the app builds the fairest games per court, balancing skill and wait time. A TV display updates in real time. Admin analytics and freemium signals help decide what to charge for.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Next.js</span><span class="proj-tag">Convex</span><span class="proj-tag">Realtime</span><span class="proj-tag">Recharts</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://picklequeueup.com" class="proj-link" target="_blank" rel="noopener">Visit ↗</a>
+        </div>
+      </article>
+
+      <!-- Scout Agents -->
+      <article class="project-card fade-up" data-cat="ai">
+        <div class="proj-badges"><span class="proj-badge badge-ai">🤖 AI Agents</span></div>
+        <h3>Scout Agents</h3>
+        <p class="proj-tagline">Lead Scout and Job Scout on one agent core</p>
+        <p>A provider-agnostic agent loop in about 300 lines with no framework, running on Gemini or Claude with typed Zod tools. Guardrails live in code: the model can't invent contact details, and nothing is sent without my review. Every step is traced.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">TypeScript</span><span class="proj-tag">NestJS</span><span class="proj-tag">Cloud Run</span>
+          <span class="proj-tag">Gemini</span><span class="proj-tag">Claude API</span><span class="proj-tag">Supabase</span>
+        </div>
+      </article>
+
+      <!-- Pasado -->
+      <article class="project-card fade-up" data-cat="live wip">
+        <div class="proj-badges"><span class="proj-badge badge-live"><i class="live-dot"></i> Public beta</span></div>
+        <h3>Pasado</h3>
+        <p class="proj-tagline">Game-style Nurse Licensure Exam reviewer</p>
+        <p>Players are nurses on hospital duty, and each room is a patient case in the real exam's 1-situation, 5-question format. It has daily rounds, streaks, weekly city and national rankings, and 500 practice questions, each approved by a licensed nurse before release.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Expo SDK 58</span><span class="proj-tag">React Native</span><span class="proj-tag">Zustand</span>
+          <span class="proj-tag">Supabase</span><span class="proj-tag">Jest</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://pasado-nu.vercel.app/" class="proj-link" target="_blank" rel="noopener">Play the beta ↗</a>
+        </div>
+      </article>
+
+      <!-- Kabisado -->
+      <article class="project-card fade-up" data-cat="wip">
+        <div class="proj-badges"><span class="proj-badge badge-complete">✅ MVP complete</span></div>
+        <h3>Kabisado</h3>
+        <p class="proj-tagline">Civil Service Exam reviewer</p>
+        <p>Offline-first mobile reviewer for the Philippine Civil Service Exam, with friendly Taglish feedback. It has quizzes by subject, a "Sure ako!" or "Hula lang" confidence toggle, a daily "Lodi" streak, per-subject accuracy, and a freemium model with premium subjects and ads.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Expo</span><span class="proj-tag">React Native</span><span class="proj-tag">TypeScript</span>
+          <span class="proj-tag">NativeWind</span><span class="proj-tag">AdMob</span>
+        </div>
+      </article>
+
+      <!-- Kiko's World -->
+      <article class="project-card fade-up" data-cat="ai wip">
+        <div class="proj-badges"><span class="proj-badge badge-ai">🤖 AI Pipeline</span></div>
+        <h3>Kiko's World</h3>
+        <p class="proj-tagline">AI video pipeline for a kids' YouTube channel</p>
+        <p>Gemini writes the scripts, ElevenLabs voices them, and Remotion renders the animated video as React code.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Gemini</span><span class="proj-tag">ElevenLabs</span><span class="proj-tag">Remotion</span>
+        </div>
+      </article>
+
+      <!-- Serenity -->
+      <article class="project-card fade-up" data-cat="ai">
+        <div class="proj-badges"><span class="proj-badge badge-shipped">📱 Mobile</span></div>
         <h3>Serenity</h3>
         <p class="proj-tagline">Mental wellness app</p>
         <p>Mood tracking, AI journaling insights with the Claude API, guided breathing, and habit tracking, on a Supabase backend with a Next.js admin dashboard.</p>
         <div class="proj-tags">
-          <span class="proj-tag">React Native</span><span class="proj-tag">Expo</span>
-          <span class="proj-tag">Supabase</span><span class="proj-tag">Claude API</span><span class="proj-tag">Next.js</span>
+          <span class="proj-tag">React Native</span><span class="proj-tag">Expo</span><span class="proj-tag">Supabase</span><span class="proj-tag">Claude API</span>
         </div>
-        <div class="proj-links">
-          <a href="https://github.com/iammelvz/serenity-mobile" class="proj-link" target="_blank">GitHub →</a>
-        </div>
-      </div>
+      </article>
 
-      <div class="project-card fade-up" style="transition-delay:0.05s">
-        <div class="proj-badge badge-shipped">🏓 Side Project</div>
-        <h3>Pickle Booking App</h3>
-        <p class="proj-tagline">Court booking for pickleball</p>
-        <p>Lets players find and book pickleball court time slots.</p>
-      </div>
-
-      <div class="project-card fade-up" style="transition-delay:0.1s">
-        <div class="proj-badge badge-shipped">🏓 Side Project</div>
-        <h3>PickleQueue</h3>
-        <p class="proj-tagline">Pickleball matchmaking</p>
-        <p>Queues players during open play and matches them into games.</p>
-      </div>
-
-      <div class="project-card fade-up">
-        <div class="proj-badge badge-wip">🚧 In Progress</div>
-        <h3>Kabisado</h3>
-        <p class="proj-tagline">Civil Service Exam reviewer</p>
-        <p>Offline-first mobile reviewer for the Philippine Civil Service Exam, with gamified quizzes, daily streaks, and progress tracking.</p>
+      <!-- Dental Clinic -->
+      <article class="project-card fade-up" data-cat="client">
+        <div class="proj-badges"><span class="proj-badge badge-complete">✅ Freelance · Completed</span></div>
+        <h3>Dental Clinic Migration</h3>
+        <p class="proj-tagline">AWS EC2 + MongoDB → Supabase + Vercel</p>
+        <p>Planned and executed a phased migration of a dental clinic app to Supabase (PostgreSQL), Vercel, and React.</p>
         <div class="proj-tags">
-          <span class="proj-tag">React Native</span><span class="proj-tag">Expo</span><span class="proj-tag">TypeScript</span>
+          <span class="proj-tag">Supabase</span><span class="proj-tag">PostgreSQL</span><span class="proj-tag">React</span><span class="proj-tag">Vercel</span>
         </div>
-      </div>
-
-      <div class="project-card fade-up" style="transition-delay:0.05s">
-        <div class="proj-badge badge-wip">🚧 In Progress</div>
-        <h3>Job Scout</h3>
-        <p class="proj-tagline">AI job scraper</p>
-        <p>Chrome extension and backend that scrape job boards and Gmail job alerts, then score each match with Gemini.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">React</span><span class="proj-tag">NestJS</span>
-          <span class="proj-tag">Cloud Run</span><span class="proj-tag">Gemini</span>
-        </div>
-      </div>
-
-      <div class="project-card fade-up" style="transition-delay:0.1s">
-        <div class="proj-badge badge-wip">🚧 In Progress</div>
-        <h3>Kiko's World</h3>
-        <p class="proj-tagline">AI video pipeline for kids' YouTube</p>
-        <p>Gemini writes the scripts, ElevenLabs voices them, and Remotion renders the animated video.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Gemini</span><span class="proj-tag">ElevenLabs</span><span class="proj-tag">Remotion</span>
-        </div>
-      </div>
+      </article>
 
     </div>
-
-    <div class="project-card freelance fade-up">
-      <div class="proj-badge badge-complete">✅ Freelance · Completed</div>
-      <h3>Dental Clinic Migration</h3>
-      <p>Planned and executed a phased migration of a dental clinic app from AWS EC2 and MongoDB to Supabase (PostgreSQL), Vercel, and React.</p>
-    </div>
+    <p class="pf-empty" hidden>No projects in this filter.</p>
   </div>
 </section>
 
@@ -570,10 +718,12 @@
           Australia's leading pet e-commerce company — where I work on the checkout delivery promise and the warehouse capacity systems behind it.
         </p>
         <p>
-          Outside of work I build consumer apps from scratch — not as tutorials, but as real 
-          products with users, analytics, and revenue models. <strong>Serenity</strong> (mental wellness), 
-          <strong>Kabisado</strong> (exam prep), and <strong>Kiko's World</strong> (AI video pipeline) are all 
-          things I built end-to-end because I enjoy the full product cycle, not just the backend ticket.
+          Outside of work I run a small indie practice: real products with users, payments, analytics, and
+          revenue models, not tutorials. Pickleball venues in Cebu take bookings and run open play on
+          <strong>my booking platform</strong> and <strong>PickleQueueUp</strong>. Local septic services companies get calls and run
+          their jobs through <strong>a website and CRM I built</strong>, with leads found by my own <strong>Scout Agents</strong>.
+          I'm also building <strong>Pasado</strong> and <strong>Kabisado</strong> (exam reviewers) and <strong>Kiko's World</strong> (AI video pipeline).
+          I do it because I enjoy the full product cycle, not just the backend ticket.
         </p>
         <p>
           I'm currently working toward my <strong>first international relocation</strong> — 
@@ -648,6 +798,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="wrap">

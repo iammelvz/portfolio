@@ -210,6 +210,74 @@ const snippets = [
   }, { threshold: 0.4 }).observe(flow);
 })();
 
+// ─── Mobile menu ─────────────────────────────────────────────────────
+(function mobileMenu() {
+  const toggle = document.getElementById('nav-toggle');
+  const set = open => {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  toggle.addEventListener('click', () => set(!nav.classList.contains('open')));
+  nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => set(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+  document.addEventListener('click', e => { if (!nav.contains(e.target)) set(false); });
+})();
+
+// ─── Scroll progress + active nav link ───────────────────────────────
+(function scrollSpy() {
+  const bar = document.getElementById('scroll-bar');
+  const links = [...document.querySelectorAll('.nav-links a')];
+  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+  function update() {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+    let current = -1;
+    sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top <= innerHeight * 0.35) current = i; });
+    links.forEach((a, i) => a.classList.toggle('active', i === current));
+  }
+  addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+// ─── Indie pipeline: light the steps in sequence ─────────────────────
+(function pipeline() {
+  const steps = document.querySelectorAll('.pl-steps li');
+  if (!steps.length || reduceMotion) return;
+  let i = 0, timer;
+  new IntersectionObserver(([e]) => {
+    clearInterval(timer);
+    if (!e.isIntersecting) return;
+    timer = setInterval(() => {
+      steps.forEach((s, j) => s.classList.toggle('lit', j === i));
+      i = (i + 1) % steps.length;
+    }, 1400);
+  }, { threshold: 0.3 }).observe(steps[0].closest('.pipeline'));
+})();
+
+// ─── Project filters ─────────────────────────────────────────────────
+(function projectFilters() {
+  const buttons = document.querySelectorAll('.pf-btn');
+  const cards = [...document.querySelectorAll('#projects .project-card')];
+  const empty = document.querySelector('.pf-empty');
+  const matches = (card, f) => f === 'all' || card.dataset.cat.split(' ').includes(f);
+  buttons.forEach(b => {
+    b.querySelector('.pf-count').textContent = cards.filter(c => matches(c, b.dataset.filter)).length;
+    b.addEventListener('click', () => {
+      const f = b.dataset.filter;
+      buttons.forEach(x => { x.classList.toggle('active', x === b); x.setAttribute('aria-pressed', x === b); });
+      let shown = 0;
+      cards.forEach(c => {
+        const on = matches(c, f);
+        c.classList.toggle('is-hidden', !on);
+        c.classList.remove('pop');
+        if (on) { shown++; c.classList.add('visible'); void c.offsetWidth; c.classList.add('pop'); }
+      });
+      empty.hidden = shown > 0;
+    });
+  });
+})();
+
 // ─── Cursor spotlight on cards ───────────────────────────────────────
 document.querySelectorAll('.skill-card, .project-card, .flow-node').forEach(card => {
   card.addEventListener('pointermove', e => {
